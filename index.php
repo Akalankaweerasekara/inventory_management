@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -13,23 +14,34 @@
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="index.html"><b>GAMPAHA WICKRAMARACHCHI</b>&nbsp; UNIVERSITY OF INDEIGENOUS MEDICINE</a>
+<body class="hold-transition login-page" style="  background: linear-gradient(to bottom, #efeff5 -15%, #d0d0e2 50%);">
+    
+    <?php
+    
+   // echo "<script>swal('Success!', 'success', 'success');</script>";
+    
+    ?>
+        
+<div class="login-box" >
+    <div class="login-logo" style="font-size: 22px;">
+        <a href="index.php" style="font-weight: 390;"><b style="font-weight: 800;">GAMPAHA WICKRAMARACHCHI</b>&nbsp; UNIVERSITY OF INDEIGENOUS MEDICINE</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Inventory Management System</p>
+      <div class="card-body login-card-body" style="  background-color: #800000; color:white; ">
+        <p class="login-box-msg">Inventory Management System</p>
+      <p class="login-box-msg" style="font-weight: 400;"><?php echo(date("Y-m-d")); ?></p>
 
       <form action="index.php" method="post">
         <div class="input-group mb-3">
             <input type="email" class="form-control" placeholder="Email" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+                <span style="color: white;" class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
@@ -37,11 +49,13 @@
             <input type="password" class="form-control" placeholder="Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <span style="color: white;"  class="fas fa-lock"></span>
             </div>
           </div>
         </div>
 
+      
+          
         <div class="form-group">
           <label style="margin-left: 0px;;">Select Your Department</label>
           <select class="form-control select2" style="width: 100%;">
@@ -63,6 +77,21 @@
             <option value="16">Sports & Entertainments </option>
             <option value="17">Medical Service</option>
             <option value="18">Career Guidance</option>
+            <option value="19">Stores</option>
+            <option value="20">Student Welfare Branch</option>
+            <option value="21">Maintenance Devision</option>
+            <option value="22">Central Lab</option>
+            <option value="23">Research & Publication Unit</option>
+            <option value="24">Account Branch Ground Floor</option>
+            <option value="25">Examination Branch</option>
+            <option value="26">General Admin</option>
+            <option value="27">Registor Office</option>
+            <option value="28">Academic Branch Non Academic Branch</option>
+            <option value="29">Media Unit</option>
+            <option value="30">VC Office</option>
+            <option value="31">Legal Office</option>
+            
+            
             
           </select>
         </div>
