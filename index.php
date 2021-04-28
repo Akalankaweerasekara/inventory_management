@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 
+<?php
+
+include 'connection.php';
+
+?>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -38,7 +44,7 @@
 
       <form action="index.php" method="post">
         <div class="input-group mb-3">
-            <input type="email" class="form-control" placeholder="Email" required>
+            <input type="email" name="uname" class="form-control" placeholder="Email" required>
           <div class="input-group-append">
             <div class="input-group-text">
                 <span style="color: white;" class="fas fa-envelope"></span>
@@ -46,7 +52,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Password" required>
+            <input type="password" name="pwd" class="form-control" placeholder="Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span style="color: white;"  class="fas fa-lock"></span>
@@ -58,7 +64,7 @@
           
         <div class="form-group">
           <label style="margin-left: 0px;;">Select Your Department</label>
-          <select class="form-control select2" style="width: 100%;">
+          <select class="form-control select2" name="dept" style="width: 100%;">
               <option value="1" selected="selected" >Department of Ayuruveda Basic Principles</option>
             <option value="2">Department of Dravyagunavijnana</option>
             <option value="3">Department of Cikitsa</option>
@@ -90,6 +96,7 @@
             <option value="29">Media Unit</option>
             <option value="30">VC Office</option>
             <option value="31">Legal Office</option>
+            <option value="32">Super Admin</option>
             
             
             
@@ -102,7 +109,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
+              <button type="submit" name="logg" class="btn btn-primary btn-block">Login</button>
           </div>
           <!-- /.col -->
         </div>
@@ -126,3 +133,28 @@
 <script src="dist/js/adminlte.min.js"></script>
 </body>
 </html>
+
+<?php
+
+if (isset($_POST['logg'])) {
+    global $con;
+    
+    $uname=$_POST['uname'];
+    $pass=$_POST['pwd'];
+    $dep=$_POST['dept'];
+    
+   
+    $query="select * from user where username='$uname' and password='$pass' and dep_code='$dep'";
+    
+    $smt_query = mysqli_query($con, $query);
+    $get_data = mysqli_num_rows($smt_query);
+    
+    if ($get_data > 0) {
+        echo"success";
+    }else{
+        echo"failed";
+    }
+    
+}
+
+?>
