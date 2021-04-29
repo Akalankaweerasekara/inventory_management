@@ -21,8 +21,12 @@ if (isset($_GET['depid'])) {
     if ($sbquery) {
         echo"<script>swal('Department Information Message', 'Department Deleted Successfully ... !', 'success');</script>";
         echo "<script>document.location='view_departments.php'</script>";
+    }else{
+        echo"<script>swal('Department Information Message', 'Department Deleted Successfully ... !', 'success');</script>";
     }
     
+}else{
+    echo"<script>swal('Department Information Message', 'Department Deleted Successfully ... !', 'success');</script>";
 }
 
 ?>
