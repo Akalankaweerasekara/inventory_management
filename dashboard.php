@@ -12,6 +12,7 @@ global $con;
 $query="select * from user";
 $squery= mysqli_query($con, $query);
 $unum= mysqli_num_rows($squery);
+
 ?>
 
 <?php
@@ -22,6 +23,16 @@ $squery2= mysqli_query($con, $query2);
 $udep= mysqli_num_rows($squery2);
 
 ?>
+
+<?php
+
+global $con;
+$query3="select * from category";
+$squery3= mysqli_query($con, $query3);
+$ucat= mysqli_num_rows($squery3);
+
+?>
+
 
 <html lang="en">
 <head>
@@ -446,7 +457,7 @@ $udep= mysqli_num_rows($squery2);
             <!-- small box -->
             <div class="small-box bg-warning">
                 <div class="inner" style="background-color:#999900;">
-                <h3>44</h3>
+                <h3><?php echo $ucat; ?></h3>
 
                 <p>Categories</p>
               </div>
