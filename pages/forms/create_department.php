@@ -416,9 +416,9 @@ if (isset($_POST['smit'])) {
     $submit_query = mysqli_query($con, $query);
 
     if ($submit_query) {
-        echo "<script>alert('Department Submitted ... !')</script>";
+        echo "<script>swal('Department Message', 'Department Created Successfully ... !', 'success');</script>";
     } else {
-        echo "<script>alert('Department not Submitted ... !')</script>";
+        echo "<script>swal('Department Message', 'Department Not Created ... !', 'error');</script>";
     }
 }
 ?>

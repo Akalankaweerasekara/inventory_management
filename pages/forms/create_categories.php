@@ -2,14 +2,13 @@
 
 <?php
 include '../../connection.php';
-$dname = "";
-$dcode = "";
+
 ?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>INVENTORY MANAGEMENT SYSTEM | Create Department</title>
+        <title>INVENTORY MANAGEMENT SYSTEM | Create Category</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -17,6 +16,10 @@ $dcode = "";
         <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+        
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -95,6 +98,7 @@ $dcode = "";
                </p>
             </a>
           </li>
+          
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -303,12 +307,12 @@ $dcode = "";
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Departments</h1>
+                                <h1>Categories</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
-                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Departments</a></li>
-                                    <li class="breadcrumb-item active">Create Department</li>
+                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Categories</a></li>
+                                    <li class="breadcrumb-item active">Create Category</li>
                                 </ol>
                             </div>
                         </div>
@@ -327,19 +331,19 @@ $dcode = "";
                                 <!-- general form elements -->
                                 <div class="card card-primary">
                                     <div class="card-header">
-                                        <h3 class="card-title">Create Department</h3>
+                                        <h3 class="card-title">Create Category</h3>
                                     </div>
                                     <!-- /.card-header -->
                                     <!-- form start -->
-                                    <form action="create_department.php" method="POST">
+                                    <form action="create_categories.php" method="POST">
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Department Name</label>
-                                                <input type="text" name="dname" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" required>
+                                                <label for="exampleInputEmail1">Category Name</label>
+                                                <input type="text" name="cname" class="form-control" id="exampleInputEmail1" placeholder="Enter Category Name" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Department Code</label>
-                                                <input type="number" name="dcode" class="form-control" id="exampleInputPassword1" placeholder="Enter Department Code" required>
+                                                <label for="exampleInputPassword1">Category Code</label>
+                                                <input type="number" name="ccode" class="form-control" id="exampleInputPassword1" placeholder="Enter Category Code" required>
                                             </div>
 
                                         </div>
@@ -354,7 +358,7 @@ $dcode = "";
 
                                             <div class="col-md-2">
                                                 <div class="card-footer">
-                                                    <a href="create_department.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
+                                                    <a href="create_categories.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -409,16 +413,16 @@ $dcode = "";
 
 <?php
 if (isset($_POST['smit'])) {
-    $dname = $_POST['dname'];
-    $dcode = $_POST['dcode'];
+    $cname = $_POST['cname'];
+    $ccode = $_POST['ccode'];
     global $con;
-    $query = "insert into department(dname,dcode)values('$dname','$dcode')";
+    $query = "insert into category(category_name,category_code)values('$cname','$ccode')";
     $submit_query = mysqli_query($con, $query);
 
     if ($submit_query) {
-        echo "<script>alert('Department Submitted ... !')</script>";
+        echo "<script>swal('Category Message', 'Category Created Successfully ... !', 'success');</script>";
     } else {
-        echo "<script>alert('Department not Submitted ... !')</script>";
+        echo "<script>swal('Category Message', 'Category Not Created ... !', 'error');</script>";
     }
 }
 ?>
