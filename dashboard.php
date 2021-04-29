@@ -1,4 +1,28 @@
 <!DOCTYPE html>
+
+<?php
+
+include './connection.php';
+
+?>
+
+<?php
+
+global $con;
+$query="select * from user";
+$squery= mysqli_query($con, $query);
+$unum= mysqli_num_rows($squery);
+?>
+
+<?php
+
+global $con;
+$query2="select * from department";
+$squery2= mysqli_query($con, $query2);
+$udep= mysqli_num_rows($squery2);
+
+?>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -134,13 +158,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/create_category.php" class="nav-link">
+                <a href="pages/forms/create_categories.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p>Create Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/view_category.php" class="nav-link">
+                <a href="pages/forms/view_categories.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View Categories</p>
                 </a>
@@ -159,13 +183,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/create_subcategory.php" class="nav-link">
+                <a href="pages/forms/create_subcategories.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Create Sub Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="pages/forms/view_subcategory.php" class="nav-link">
+                  <a href="pages/forms/view_subcategories.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View Sub Categories</p>
                 </a>
@@ -184,7 +208,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="pages/forms/create_user.php" class="nav-link">
+                  <a href="pages/forms/create_users.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Create User</p>
                 </a>
@@ -203,24 +227,93 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-book"></i>
               <p>
-                Items
+                Stock
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="pages/forms/create_item.php" class="nav-link">
+                  <a href="pages/forms/add_stock_items.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
-                  <p> Create Item</p>
+                  <p> Add Stock Item</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="pages/forms/view_items.php" class="nav-link">
+                  <a href="pages/forms/view_stock_items.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
-                  <p>View All Items</p>
+                  <p>View Stock Items</p>
                 </a>
               </li>
               
+            </ul>
+          </li>
+          
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-ban"></i>
+              <p>
+                Equipment
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                  <a href="pages/forms/view_equipment_department_requests.php" class="nav-link">
+                  <i class="far fa-circle text-warning nav-icon"></i>
+                  <p> View Equipment Requests</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a href="pages/forms/issue_equipment_orders.php" class="nav-link">
+                  <i class="far fa-circle text-info nav-icon"></i>
+                  <p>Issue Equipment Orders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a href="pages/forms/equipment_order_confirmations.php" class="nav-link">
+                  <i class="far fa-circle text-warning nav-icon"></i>
+                  <p>Order Confirmations </p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+          
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-bell"></i>
+              <p>
+                Serialized Stock
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                  <a href="pages/forms/serialized_equipments.php" class="nav-link">
+                  <i class="far fa-circle text-warning nav-icon"></i>
+                  <p> Serialized Equipments</p>
+                </a>
+              </li>
+             
+            </ul>
+          </li>
+          
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-mobile"></i>
+              <p>
+                Messages
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                  <a href="pages/forms/admin_messages.php" class="nav-link">
+                  <i class="far fa-circle text-warning nav-icon"></i>
+                  <p> Send & View Messages</p>
+                </a>
+              </li>
+             
             </ul>
           </li>
        
@@ -290,7 +383,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                  <h3><?php echo $unum; ?></h3>
 
                 <p>Users</p>
               </div>
@@ -338,7 +431,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
                 <div class="inner" style="background-color: #00cccc;">
-                <h3>20</h3>
+                <h3><?php echo $udep; ?></h3>
 
                 <p>Departments</p>
               </div>
