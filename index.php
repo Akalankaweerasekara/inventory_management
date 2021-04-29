@@ -162,7 +162,7 @@ if (isset($_POST['logg'])) {
     $dep = $_POST['dept'];
 
 
-    $query = "select * from user where username='$uname' and password='$pass' and dep_code='$dep'";
+    $query = "select * from user where username='$uname' and password='$pass' and dept_code='$dep'";
 
     $smt_query = mysqli_query($con, $query);
     $get_data = mysqli_num_rows($smt_query);

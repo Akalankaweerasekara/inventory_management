@@ -109,13 +109,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
+                  <a href="pages/forms/create_department.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p>Create Department</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
+                  <a href="pages/forms/view_departments.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View Departments</p>
                 </a>
@@ -134,13 +134,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
+                <a href="pages/forms/create_category.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p>Create Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
+                <a href="pages/forms/view_category.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View Categories</p>
                 </a>
@@ -159,13 +159,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
+                <a href="pages/forms/create_subcategory.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Create Sub Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
+                  <a href="pages/forms/view_subcategory.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View Sub Categories</p>
                 </a>
@@ -184,13 +184,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
+                  <a href="pages/forms/create_user.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Create User</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
+                  <a href="pages/forms/view_users.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View All Users</p>
                 </a>
@@ -209,13 +209,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
+                  <a href="pages/forms/create_item.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Create Item</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
+                  <a href="pages/forms/view_items.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View All Items</p>
                 </a>
