@@ -17,6 +17,9 @@ $dcode = "";
         <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+         <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -335,7 +338,7 @@ $dcode = "";
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Department Name</label>
-                                                <input type="text" name="dname" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" required>
+                                                <input type="text" name="dname" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" required autofocus="on">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Department Code</label>

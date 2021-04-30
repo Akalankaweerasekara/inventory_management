@@ -9,7 +9,7 @@ $dcode = "";
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>INVENTORY MANAGEMENT SYSTEM | Create Department</title>
+        <title>INVENTORY MANAGEMENT SYSTEM | View All Sub Categories</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -303,12 +303,12 @@ $dcode = "";
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Departments</h1>
+                                <h1>Sub Categories</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
-                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Departments</a></li>
-                                    <li class="breadcrumb-item active">Create Department</li>
+                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Sub Categories</a></li>
+                                    <li class="breadcrumb-item active">View All Sub Categories</li>
                                 </ol>
                             </div>
                         </div>
@@ -319,51 +319,60 @@ $dcode = "";
                 <!-- /.row -->
                 <section class="content">
                     <div class="container-fluid">
-                        <div class="row">
-                            <!-- left column -->
-                            <div class="col-md-2"></div>
-
-                            <div class="col-md-8">
-                                <!-- general form elements -->
-                                <div class="card card-primary">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Create Department</h3>
-                                    </div>
-                                    <!-- /.card-header -->
-                                    <!-- form start -->
-                                    <form action="create_department.php" method="POST">
-                                        <div class="card-body">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Department Name</label>
-                                                <input type="text" name="dname" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Department Code</label>
-                                                <input type="number" name="dcode" class="form-control" id="exampleInputPassword1" placeholder="Enter Department Code" required>
-                                            </div>
-
-                                        </div>
-                                        <!-- /.card-body -->
-
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <div class="card-footer">
-                                                    <button type="submit" name="smit" class="btn btn-primary">Submit</button>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-2">
-                                                <div class="card-footer">
-                                                    <a href="create_department.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-
-
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">View All Sub Categories</h3>
                             </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Sub Category Code</th>
+                                            <th>Sub Category Name</th>
+                                            <th>Category Code</th>
+                                            <th>Action</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
+                                        <?Php
+                                        global $con;
+                                        $query = "select * from sub_category";
+                                        $gtdata = mysqli_query($con, $query);
+
+                                        while ($gdd = mysqli_fetch_array($gtdata)) {
+                                            $scatname = $gdd['scategory_name'];
+                                            $scatcode = $gdd['scategory_code'];
+                                            $catcode = $gdd['category'];
+
+                                            echo "<tr>
+                    <td>$scatcode</td>
+                    <td>$scatname</td>
+                    <td>$catcode</td>
+                    <td><a href='scatdelete.php?scatid=$scatcode'><span class='btn btn-block btn-danger'>Delete</span></a></td>
+                    <td></td>
+                    <td></td>
+                  </tr>";
+                                        }
+                                        ?>
+
+
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Sub Category Code</th>
+                                            <th>Sub Category Name</th>
+                                            <th>Category Code</th>
+                                            <th>Action</th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
                         </div>
                         <!-- /.row -->
                     </div><!-- /.container-fluid -->
@@ -407,18 +416,3 @@ $dcode = "";
 </html>
 
 
-<?php
-if (isset($_POST['smit'])) {
-    $dname = $_POST['dname'];
-    $dcode = $_POST['dcode'];
-    global $con;
-    $query = "insert into department(dname,dcode)values('$dname','$dcode')";
-    $submit_query = mysqli_query($con, $query);
-
-    if ($submit_query) {
-        echo "<script>alert('Department Submitted ... !')</script>";
-    } else {
-        echo "<script>alert('Department not Submitted ... !')</script>";
-    }
-}
-?>
