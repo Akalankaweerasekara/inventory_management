@@ -2,8 +2,30 @@
 
 <?php
 include '../../connection.php';
-$dname = "";
-$dcode = "";
+$guname = "";
+$gpwd = "";
+$gdepcode = "";
+$gname = "";
+$gecode = "";
+$gtele = "";
+$gecode = "";
+?>
+<?php
+if (isset($_POST['srch'])) {
+    $decode = $_POST['ecode'];
+
+    global $con;
+    $query2 = "select * from user where emp_code='$decode'";
+    $submit_query2 = mysqli_query($con, $query2);
+    while ($gtuser = mysqli_fetch_array($submit_query2)) {
+        $guname = $gtuser['username'];
+        $gpwd = $gtuser['password'];
+        $gdepcode = $gtuser['dept_code'];
+        $gname = $gtuser['name'];
+        $gecode = $gtuser['emp_code'];
+        $gtele = $gtuser['telephone'];
+    }
+}
 ?>
 <html lang="en">
     <head>
@@ -17,6 +39,9 @@ $dcode = "";
         <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -331,23 +356,23 @@ $dcode = "";
                                     </div>
                                     <!-- /.card-header -->
                                     <!-- form start -->
-                                    <form action="create_department.php" method="POST">
+                                    <form action="create_users.php" method="POST">
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Employee Code</label>
-                                                <input type="text" name="ecode" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Employee Code" required>
+                                                <input type="text" name="ecode" value="<?php echo $gecode; ?>"  class="form-control" id="exampleInputEmail1" placeholder="Search by Employee Code" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Username</label>
-                                                <input type="email" name="uname" class="form-control" id="exampleInputPassword1" placeholder="Put Your Email Here" required>
+                                                <input type="email" name="uname" value="<?php echo $guname; ?>" class="form-control" id="exampleInputPassword1" placeholder="Put Your Email Here">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Password</label>
-                                                <input type="password" name="pwd" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Password Here" required>
+                                                <input type="password" name="pwd" value="<?php echo $gpwd; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Password Here">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Name</label>
-                                                <input type="text" name="nme" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Name Here" required>
+                                                <input type="text" name="nme" value="<?php echo $gname; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Name Here">
                                             </div>
                                             <div class="form-group">
                                                 <label style="margin-left: 0px;;">Select Your Department</label>
@@ -370,7 +395,7 @@ $dcode = "";
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Telephone</label>
-                                                <input type="tel" name="telephone" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Telephone" required>
+                                                <input type="tel" name="telephone" value="<?php echo $gtele; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Telephone">
                                             </div>
 
                                         </div>
@@ -379,13 +404,23 @@ $dcode = "";
                                         <div class="row">
                                             <div class="col-md-2">
                                                 <div class="card-footer">
-                                                    <button type="submit" name="smit" class="btn btn-primary">Submit</button>
+                                                    <button type="submit" name="suv" class="btn btn-primary">Save</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="card-footer">
+                                                    <button type="submit" name="upd" class="btn btn-primary">Update</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="card-footer">
+                                                    <button type="submit" name="srch" class="btn btn-primary">Search</button>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-2">
                                                 <div class="card-footer">
-                                                    <a href="create_department.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
+                                                    <a href="create_users.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -439,17 +474,44 @@ $dcode = "";
 
 
 <?php
-if (isset($_POST['smit'])) {
-    $dname = $_POST['dname'];
-    $dcode = $_POST['dcode'];
+if (isset($_POST['suv'])) {
+    $decode = $_POST['ecode'];
+    $duname = $_POST['uname'];
+    $dpwd = $_POST['pwd'];
+    $dnme = $_POST['nme'];
+    $ddept = $_POST['dept'];
+    $dtelephone = $_POST['telephone'];
     global $con;
-    $query = "insert into department(dname,dcode)values('$dname','$dcode')";
-    $submit_query = mysqli_query($con, $query);
+    $query1 = "insert into user(emp_code,username,password,dept_code,name,telephone)values('$decode','$duname','$dpwd','$ddept','$dnme','$dtelephone')";
+    $submit_query1 = mysqli_query($con, $query1);
 
-    if ($submit_query) {
-        echo "<script>alert('Department Submitted ... !')</script>";
+    if ($submit_query1) {
+        echo"<script>swal('User Message ', 'User Details Saved ... !', 'success');</script>";
     } else {
-        echo "<script>alert('Department not Submitted ... !')</script>";
+        echo"<script>swal('User Message ', 'User Details Not Saved ... !', 'success');</script>";
     }
 }
 ?>
+
+<?php
+
+if (isset($_POST['upd'])) {
+    $decode = $_POST['ecode'];
+    $duname = $_POST['uname'];
+    $dpwd = $_POST['pwd'];
+    $dnme = $_POST['nme'];
+    $ddept = $_POST['dept'];
+    $dtelephone = $_POST['telephone'];
+    
+    global $con;
+    $query5="update user set username='$duname',password='$dpwd',name='$dnme',telephone='$dtelephone' where emp_code='$decode'";
+    $squery= mysqli_query($con, $query5);
+    if ($squery) {
+        echo"<script>swal('User Message ', 'User Details Updated ... !', 'success');</script>";
+    }else{
+        echo"<script>swal('User Message', 'User Details Not Updated ... !', 'error');</script>";
+    }
+}
+
+?>
+

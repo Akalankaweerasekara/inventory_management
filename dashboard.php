@@ -33,6 +33,15 @@ $ucat= mysqli_num_rows($squery3);
 
 ?>
 
+<?php
+
+global $con;
+$query4="select * from sub_category";
+$squery4= mysqli_query($con, $query4);
+$uscat= mysqli_num_rows($squery4);
+
+?>
+
 
 <html lang="en">
 <head>
@@ -472,7 +481,7 @@ $ucat= mysqli_num_rows($squery3);
             <!-- small box -->
             <div class="small-box bg-danger">
                 <div class="inner" style="background-color:#00ff33;">
-                <h3>65</h3>
+                <h3><?php echo $uscat ?></h3>
 
                 <p>Sub Categories</p>
               </div>
