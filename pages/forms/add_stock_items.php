@@ -9,7 +9,7 @@ $dcode = "";
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>INVENTORY MANAGEMENT SYSTEM | Create Department</title>
+        <title>INVENTORY MANAGEMENT SYSTEM | Add Stock Item</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -116,10 +116,10 @@ $dcode = "";
                   <p>View Departments</p>
                 </a>
               </li>
-              
+
             </ul>
           </li>
-          
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -141,10 +141,10 @@ $dcode = "";
                   <p>View Categories</p>
                 </a>
               </li>
-              
+
             </ul>
           </li>
-          
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-bars"></i>
@@ -166,10 +166,10 @@ $dcode = "";
                   <p>View Sub Categories</p>
                 </a>
               </li>
-              
+
             </ul>
           </li>
-          
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
@@ -191,10 +191,10 @@ $dcode = "";
                   <p>View All Users</p>
                 </a>
               </li>
-              
+
             </ul>
           </li>
-          
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-book"></i>
@@ -216,10 +216,10 @@ $dcode = "";
                   <p>View Stock Items</p>
                 </a>
               </li>
-              
+
             </ul>
           </li>
-          
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-ban"></i>
@@ -247,10 +247,10 @@ $dcode = "";
                   <p>Order Confirmations </p>
                 </a>
               </li>
-              
+
             </ul>
           </li>
-          
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-bell"></i>
@@ -266,10 +266,10 @@ $dcode = "";
                   <p> Serialized Equipments</p>
                 </a>
               </li>
-             
+
             </ul>
           </li>
-          
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-mobile"></i>
@@ -285,10 +285,10 @@ $dcode = "";
                   <p> Send & View Messages</p>
                 </a>
               </li>
-             
+
             </ul>
           </li>
-       
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -303,12 +303,12 @@ $dcode = "";
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Departments</h1>
+                                <h1>Stock</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
-                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Departments</a></li>
-                                    <li class="breadcrumb-item active">Create Department</li>
+                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Stock</a></li>
+                                    <li class="breadcrumb-item active">Add Stock Item</li>
                                 </ol>
                             </div>
                         </div>
@@ -327,18 +327,50 @@ $dcode = "";
                                 <!-- general form elements -->
                                 <div class="card card-primary">
                                     <div class="card-header">
-                                        <h3 class="card-title">Create Department</h3>
+                                        <h3 class="card-title">Add Stock Item</h3>
                                     </div>
                                     <!-- /.card-header -->
                                     <!-- form start -->
                                     <form action="create_department.php" method="POST">
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Department Name</label>
+                                                <label for="exampleInputEmail1">Item Name</label>
                                                 <input type="text" name="dname" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Department Code</label>
+                                                <label for="exampleInputPassword1">Category</label>
+                                                <input type="number" name="dcode" class="form-control" id="exampleInputPassword1" placeholder="Enter Department Code" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Sub Category</label>
+                                                <input type="text" name="dname" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Description</label>
+                                                <input type="number" name="dcode" class="form-control" id="exampleInputPassword1" placeholder="Enter Department Code" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Supplier</label>
+                                                <input type="text" name="dname" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Purchase Order NO</label>
+                                                <input type="number" name="dcode" class="form-control" id="exampleInputPassword1" placeholder="Enter Department Code" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Date of Purchase</label>
+                                                <input type="text" name="dname" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Quantity</label>
+                                                <input type="number" name="dcode" class="form-control" id="exampleInputPassword1" placeholder="Enter Department Code" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Warranty</label>
+                                                <input type="number" name="dcode" class="form-control" id="exampleInputPassword1" placeholder="Enter Department Code" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Warrenty in Calander</label>
                                                 <input type="number" name="dcode" class="form-control" id="exampleInputPassword1" placeholder="Enter Department Code" required>
                                             </div>
 
