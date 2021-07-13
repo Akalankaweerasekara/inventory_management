@@ -3,8 +3,68 @@
 <?php
 include '../../connection.php';
 $dname = "";
-$dcode = "";
+$ipp = "";
+$itname="";
+$cnm="";
+$ipcat="";
+$ipsubcat="";
+$ipdesc="";
+$ipsup="";
+$snm="";
+$ipdesc="";
+$ipsup="";
+$ippono="";
+$ipdop="";
+$ipqty="";
+$ipwarrenty="";
+$ipwarrentyc="";
 ?>
+
+<?php
+if (isset($_POST['srch'])) {
+    $ipp = $_POST['itpono'];
+    
+    global $con;
+    $query2 = "select * from stock where pono='$ipp'";
+    $submit_query2 = mysqli_query($con, $query2);
+    while ($gtuser = mysqli_fetch_array($submit_query2)) {
+        $itname = $gtuser['itemname'];
+        $ipcat = $gtuser['category'];
+        $ipsubcat = $gtuser['subcat'];
+        $ipdesc = $gtuser['description'];
+        $ipsup = $gtuser['supplier'];
+        $ippono = $gtuser['pono'];
+        $ipdop = $gtuser['dop'];
+        $ipqty = $gtuser['qty'];
+        $ipwarrenty = $gtuser['warrenty'];
+        $ipwarrentyc = $gtuser['warrentyc'];
+       
+    }
+}
+?>
+
+<?php
+
+global $con;
+$query3="select * from category where category_code='$ipcat'";
+$submit_query3= mysqli_query($con, $query3);
+while($gtccode= mysqli_fetch_array($submit_query3)){
+    $cnm=$gtccode['category_name'];
+}
+
+?>
+
+<?php
+
+global $con;
+$query4="select * from sub_category where scategory_code='$ipsubcat'";
+$submit_query4= mysqli_query($con, $query4);
+while($gtsccode= mysqli_fetch_array($submit_query4)){
+    $snm=$gtsccode['scategory_name'];
+}
+
+?>
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -17,6 +77,9 @@ $dcode = "";
         <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <!-- daterange picker -->
         <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
     </head>
@@ -337,12 +400,12 @@ $dcode = "";
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Item Name</label>
-                                                <input type="text" name="itname" class="form-control" id="exampleInputEmail1" placeholder="Enter Item Name" required>
+                                                <input type="text" name="itname" class="form-control" value="<?php echo $itname; ?>" id="exampleInputEmail1" placeholder="Enter Item Name" >
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Category</label>
                                                 <select class="form-control select2" name="itcat" style="width: 100%;">
-
+                                                    <option value='<?php echo $cnm; ?>'><?php echo $cnm; ?></option>
                                                     <?php
                                                     global $con;
 
@@ -361,7 +424,7 @@ $dcode = "";
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Sub Category</label>
                                                 <select class="form-control select2" name="itsubcat" style="width: 100%;">
-
+                                                    <option value='<?php echo $snm; ?>'><?php echo $snm; ?></option>
                                                     <?php
                                                     global $con;
 
@@ -380,36 +443,36 @@ $dcode = "";
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Description</label>
-                                                <input type="text" name="itdes" class="form-control" id="exampleInputPassword1" placeholder="Enter Description" required>
+                                                <input type="text" name="itdes" value="<?php echo $ipdesc; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Description">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Supplier</label>
-                                                <input type="text" name="itsup" class="form-control" id="exampleInputEmail1" placeholder="Enter Supplier Name" required>
+                                                <input type="text" name="itsup" value="" class="form-control" id="exampleInputEmail1" placeholder="Enter Supplier Name">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Purchase Order NO</label>
-                                                <input type="number" name="itpono" class="form-control" id="exampleInputPassword1" placeholder="Enter Purchase Order NO" required>
+                                                <input type="number" name="itpono" value="" class="form-control" id="exampleInputPassword1" placeholder="Enter Purchase Order NO">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Date of Purchase</label>
-                                                <input type="datetime-local" name="idop" class="form-control" id="exampleInputEmail1" placeholder="Enter Date of Purchase" required>
+                                                <input type="datetime-local" name="idop" value="" class="form-control" id="exampleInputEmail1" placeholder="Enter Date of Purchase">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Quantity</label>
-                                                <input type="number" name="iqty" class="form-control" id="exampleInputPassword1" placeholder="Enter Quantity" required>
+                                                <input type="number" name="iqty" value="" class="form-control" id="exampleInputPassword1" placeholder="Enter Quantity">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Warranty</label>
                                         
                                                 <select class="form-control select2" name="iwty" style="width: 100%;">
                                                     <option value='1month'>1 Month Warrenty</option>
-                                                    <option value='3month'>3 Month Warrenty</option>
-                                                    <option value='6month'>6 Month Warrenty</option>
+                                                    <option value='3months'>3 Months Warrenty</option>
+                                                    <option value='6months'>6 Months Warrenty</option>
                                                     <option value='1year'>1 Year Warrenty</option>
-                                                    <option value='2year'>2 Year Warrenty</option>
-                                                    <option value='3year'>3 Year Warrenty</option>
-                                                    <option value='5year'>5 Year Warrenty</option>
-                                                    <option value='10year'>10 Year Warrenty</option>
+                                                    <option value='2years'>2 Years Warrenty</option>
+                                                    <option value='3years'>3 Years Warrenty</option>
+                                                    <option value='5years'>5 Years Warrenty</option>
+                                                    <option value='10years'>10 Years Warrenty</option>
                                                                       
                                                 </select>
                                             
@@ -422,7 +485,7 @@ $dcode = "";
                                                             <i class="far fa-calendar-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" name="iwtyc" class="form-control float-right" id="reservation">
+                                                    <input type="text" name="iwtyc" value="" class="form-control float-right" id="reservation">
                                                 </div>  
                                             </div>
 
@@ -435,10 +498,20 @@ $dcode = "";
                                                     <button type="submit" name="smit" class="btn btn-primary">Submit</button>
                                                 </div>
                                             </div>
+                                            <div class="col-md-2">
+                                                <div class="card-footer">
+                                                    <button type="submit" name="upd" class="btn btn-primary">Update</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="card-footer">
+                                                    <button type="submit" name="srch" class="btn btn-primary">Search</button>
+                                                </div>
+                                            </div>
 
                                             <div class="col-md-2">
                                                 <div class="card-footer">
-                                                    <a href="add_stock_ items.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
+                                                    <a href="add_stock_items.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -661,24 +734,24 @@ $dcode = "";
 
 <?php
 if (isset($_POST['smit'])) {
-    $itnm = $_POST['itnm'];
+    $itnm = $_POST['itname'];
     $itcat = $_POST['itcat'];
     $itsubcat = $_POST['itsubcat'];
     $itdes = $_POST['itdes'];
-    $isup = $_POST['itsup'];
-    $ipono = $_POST['ipono'];
+    $itsup = $_POST['itsup'];
+    $ipono = $_POST['itpono'];
     $idop = $_POST['idop'];
     $iqty = $_POST['iqty'];
     $iwty = $_POST['iwty'];
     $iwtyc = $_POST['iwtyc'];
     global $con;
-    $query = "insert into department(dname,dcode)values('$dname','$dcode')";
-    $submit_query = mysqli_query($con, $query);
+    $query2 = "insert into stock(itemname,category,subcat,description,supplier,pono,dop,qty,warrenty,warrentyc)values('$itnm','$itcat','$itsubcat','$itdes','$itsup','$ipono','$idop','$iqty','$iwty','$iwtyc')";
+    $submit_query2 = mysqli_query($con, $query2);
 
-    if ($submit_query) {
-        echo "<script>alert('Department Submitted ... !')</script>";
+    if ($submit_query2) {
+        echo"<script>swal('Stock Message ', 'Item Added Successfully ... !', 'success');</script>";
     } else {
-        echo "<script>alert('Department not Submitted ... !')</script>";
+        echo"<script>swal('Stock Message ', 'Item Adding Failed ... !', 'error');</script>";
     }
 }
 ?>
