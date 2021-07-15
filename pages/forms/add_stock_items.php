@@ -447,24 +447,25 @@ while($gtsccode= mysqli_fetch_array($submit_query4)){
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Supplier</label>
-                                                <input type="text" name="itsup" value="" class="form-control" id="exampleInputEmail1" placeholder="Enter Supplier Name">
+                                                <input type="text" name="itsup" value="<?php echo $ipsup; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Supplier Name">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Purchase Order NO</label>
-                                                <input type="number" name="itpono" value="" class="form-control" id="exampleInputPassword1" placeholder="Enter Purchase Order NO">
+                                                <input type="number" name="itpono" value="<?php echo $ippono; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Purchase Order NO">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Date of Purchase</label>
-                                                <input type="datetime-local" name="idop" value="" class="form-control" id="exampleInputEmail1" placeholder="Enter Date of Purchase">
+                                                <input type="datetime-local" name="idop" value="<?php echo $ipdop; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Date of Purchase">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Quantity</label>
-                                                <input type="number" name="iqty" value="" class="form-control" id="exampleInputPassword1" placeholder="Enter Quantity">
+                                                <input type="number" name="iqty" value="<?php echo $ipqty; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Quantity">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Warranty</label>
                                         
                                                 <select class="form-control select2" name="iwty" style="width: 100%;">
+                                                    <option value='<?php echo $ipwarrenty; ?>'><?php echo $ipwarrenty; ?></option>
                                                     <option value='1month'>1 Month Warrenty</option>
                                                     <option value='3months'>3 Months Warrenty</option>
                                                     <option value='6months'>6 Months Warrenty</option>
@@ -485,7 +486,7 @@ while($gtsccode= mysqli_fetch_array($submit_query4)){
                                                             <i class="far fa-calendar-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" name="iwtyc" value="" class="form-control float-right" id="reservation">
+                                                    <input type="text" name="iwtyc" value="<?php echo $ipwarrentyc; ?>" class="form-control float-right" id="reservation">
                                                 </div>  
                                             </div>
 
@@ -754,4 +755,26 @@ if (isset($_POST['smit'])) {
         echo"<script>swal('Stock Message ', 'Item Adding Failed ... !', 'error');</script>";
     }
 }
+?>
+
+<?php
+
+if (isset($_POST['upd'])) {
+    $decode = $_POST['ecode'];
+    $duname = $_POST['uname'];
+    $dpwd = $_POST['pwd'];
+    $dnme = $_POST['nme'];
+    $ddept = $_POST['dept'];
+    $dtelephone = $_POST['telephone'];
+    
+    global $con;
+    $query5="update user set username='$duname',password='$dpwd',name='$dnme',telephone='$dtelephone' where emp_code='$decode'";
+    $squery= mysqli_query($con, $query5);
+    if ($squery) {
+        echo"<script>swal('User Message ', 'User Details Updated ... !', 'success');</script>";
+    }else{
+        echo"<script>swal('User Message', 'User Details Not Updated ... !', 'error');</script>";
+    }
+}
+
 ?>
