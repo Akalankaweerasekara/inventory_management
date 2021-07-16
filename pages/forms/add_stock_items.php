@@ -405,7 +405,7 @@ while($gtsccode= mysqli_fetch_array($submit_query4)){
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Category</label>
                                                 <select class="form-control select2" name="itcat" style="width: 100%;">
-                                                    <option value='<?php echo $cnm; ?>'><?php echo $cnm; ?></option>
+                                                    <option value='<?php echo $ipcat; ?>'><?php echo $cnm; ?></option>
                                                     <?php
                                                     global $con;
 
@@ -424,7 +424,7 @@ while($gtsccode= mysqli_fetch_array($submit_query4)){
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Sub Category</label>
                                                 <select class="form-control select2" name="itsubcat" style="width: 100%;">
-                                                    <option value='<?php echo $snm; ?>'><?php echo $snm; ?></option>
+                                                    <option value='<?php echo $ipsubcat; ?>'><?php echo $snm; ?></option>
                                                     <?php
                                                     global $con;
 
@@ -760,20 +760,24 @@ if (isset($_POST['smit'])) {
 <?php
 
 if (isset($_POST['upd'])) {
-    $decode = $_POST['ecode'];
-    $duname = $_POST['uname'];
-    $dpwd = $_POST['pwd'];
-    $dnme = $_POST['nme'];
-    $ddept = $_POST['dept'];
-    $dtelephone = $_POST['telephone'];
+    $itnmu = $_POST['itname'];
+    $itcatu = $_POST['itcat'];
+    $itsubcatu = $_POST['itsubcat'];
+    $itdesu = $_POST['itdes'];
+    $itsupu = $_POST['itsup'];
+    $iponou = $_POST['itpono'];
+    $idopu = $_POST['idop'];
+    $iqtyu = $_POST['iqty'];
+    $iwtyu = $_POST['iwty'];
+    $iwtycu = $_POST['iwtyc'];
     
     global $con;
-    $query5="update user set username='$duname',password='$dpwd',name='$dnme',telephone='$dtelephone' where emp_code='$decode'";
+    $query5="update stock set itemname='$itnmu',category='$itcatu',subcat='$itsubcatu',description='$itdesu',supplier='$itsupu',dop='$idopu',qty='$iqtyu',warrenty='$iwtyu',warrentyc='$iwtycu' where pono='$iponou'";
     $squery= mysqli_query($con, $query5);
     if ($squery) {
-        echo"<script>swal('User Message ', 'User Details Updated ... !', 'success');</script>";
+        echo"<script>swal('Stock Message ', 'Item Detailes Updated ... !', 'success');</script>";
     }else{
-        echo"<script>swal('User Message', 'User Details Not Updated ... !', 'error');</script>";
+        echo"<script>swal('Stock Message', 'Item Details Not Updated ... !', 'error');</script>";
     }
 }
 

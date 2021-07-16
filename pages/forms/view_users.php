@@ -335,7 +335,7 @@ $dnumber="";
                                             <th>Name</th>
                                             <th>Department</th>
                                             <th>Telephone</th>
-                                            <th>Action</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -384,7 +384,7 @@ $dnumber="";
                                             <th>Name</th>
                                             <th>Department</th>
                                             <th>Telephone</th>
-                                            <th>Action</th>
+                                            <th></th>
                                         </tr>
                                     </tfoot>
                                 </table>

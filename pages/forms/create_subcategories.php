@@ -361,6 +361,10 @@ include '../../connection.php';
                                                 <label for="exampleInputPassword1">Sub Category Code</label>
                                                 <input type="number" name="scat_code" class="form-control" id="exampleInputPassword1" placeholder="Enter Sub Category Code" required>
                                             </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Unique ID</label>
+                                                <input type="number" name="uqid" class="form-control" id="exampleInputPassword1" placeholder="Enter Unique ID" required>
+                                            </div>
 
                                         </div>
                                         <!-- /.card-body -->
@@ -432,8 +436,9 @@ if (isset($_POST['scsmit'])) {
     $scname = $_POST['scat_name'];
     $sccode = $_POST['scat_code'];
     $categ = $_POST['categ'];
+    $uqid = $_POST['uqid'];
     global $con;
-    $query = "insert into sub_category(scategory_name,scategory_code,category)values('$scname','$sccode','$categ')";
+    $query = "insert into sub_category(scategory_name,scategory_code,category,uqid)values('$scname','$sccode','$categ','$uqid')";
     $submit_query = mysqli_query($con, $query);
 
     if ($submit_query) {

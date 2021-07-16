@@ -331,8 +331,9 @@ $dcode = "";
                                             <th>Sub Category Code</th>
                                             <th>Sub Category Name</th>
                                             <th>Category Code</th>
+                                            <th>Unique ID</th>
                                             <th>Action</th>
-                                            <th></th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -346,14 +347,15 @@ $dcode = "";
                                             $scatname = $gdd['scategory_name'];
                                             $scatcode = $gdd['scategory_code'];
                                             $catcode = $gdd['category'];
+                                            $uqid = $gdd['uqid'];
 
                                             echo "<tr>
                     <td>$scatcode</td>
                     <td>$scatname</td>
                     <td>$catcode</td>
+                    <td>$uqid</td>
                     <td><a href='scatdelete.php?scatid=$scatcode'><span class='btn btn-block btn-danger'>Delete</span></a></td>
-                    <td></td>
-                    <td></td>
+                                   
                   </tr>";
                                         }
                                         ?>
@@ -366,8 +368,9 @@ $dcode = "";
                                             <th>Sub Category Code</th>
                                             <th>Sub Category Name</th>
                                             <th>Category Code</th>
+                                            <th>Unique ID</th>
                                             <th>Action</th>
-                                            <th></th>
+                                            
                                         </tr>
                                     </tfoot>
                                 </table>
