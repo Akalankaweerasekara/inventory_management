@@ -270,7 +270,7 @@ include '../../connection.php';
                                         </a>
                                     </li>
 
-                                </ul>
+                                </ul>  
                             </li>
 
                             <li class="nav-item">
@@ -287,17 +287,17 @@ include '../../connection.php';
                                             <i class="far fa-circle text-warning nav-icon"></i>
                                             <p> Send & View Messages</p>
                                         </a>
-                                    </li>
+                                    </li> 
 
-                                </ul>
+                                </ul> 
                             </li>
 
-                        </ul>
+                        </ul> 
                     </nav>
                     <!-- /.sidebar-menu -->
                 </div>
                 <!-- /.sidebar -->
-            </aside>
+            </aside> 
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
@@ -416,9 +416,9 @@ include '../../connection.php';
         <!-- bs-custom-file-input -->
         <script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
         <!-- AdminLTE App -->
-        <script src="../../dist/js/adminlte.min.js"></script>
+        <script src="../../dist/js/adminlte.min.js"></script> 
         <!-- AdminLTE for demo purposes -->
-        <script src="../../dist/js/demo.js"></script>
+        <script src="../../dist/js/demo.js"></script>  
         <!-- Page specific script -->
         <!-- DataTables  & Plugins -->
         <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
@@ -427,18 +427,18 @@ include '../../connection.php';
         <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
         <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
         <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-        <script src="../../plugins/jszip/jszip.min.js"></script>
-        <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+        <script src="../../plugins/jszip/jszip.min.js"></script> 
+        <script src="../../plugins/pdfmake/pdfmake.min.js"></script> 
         <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-        <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+        <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script> 
         <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
         <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
         <!-- AdminLTE App -->
         <script src="../../dist/js/adminlte.min.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="../../dist/js/demo.js"></script>
+        <!-- AdminLTE for demo purposes --> 
+        <script src="../../dist/js/demo.js"></script> 
         <script>
-            $(function () {
+            $(function () {  
                 bsCustomFileInput.init();
             });
         </script>
@@ -451,7 +451,7 @@ include '../../connection.php';
                 $('#example2').DataTable({
                     "paging": true,
                     "lengthChange": false,
-                    "searching": false,
+                    "searching": false,     
                     "ordering": true,
                     "info": true,
                     "autoWidth": false,
@@ -459,5 +459,7 @@ include '../../connection.php';
                 });
             });
         </script>
+        
+        
     </body>
 </html>

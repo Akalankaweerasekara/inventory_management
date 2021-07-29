@@ -5,7 +5,7 @@ error_reporting(0);
 if(strlen($_SESSION['wlogin'])==0)
 	{	
  $SS=$_SESSION['wlogin'];
- echo $SS;
+ 
 header('location:index.php');
 }
 else{

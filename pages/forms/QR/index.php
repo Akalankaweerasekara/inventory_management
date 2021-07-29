@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+
+<?php
+
+if (isset($_GET['gqr'])) {
+    $gqr=$_GET['gqr'];
+}
+
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +21,7 @@
             width: 100%;
         }
         .bg {
-            background-image: url("images/bg.jpg");
+            background-image: url("sa.jpg");
             height: 100%;
             background-position: center;
             background-repeat: no-repeat;
@@ -32,10 +40,8 @@
                 <hr>
                 <form action="show.php" method="get">
                    
-                    <textarea autocomplete="off" class="form-control" name="text" style="border-radius: 0px; " placeholder="Enter Serialized Equipment Details" value="" rows="4" cols="50">
-
-</textarea>
-        <br>
+                   <input type="text" autocomplete="off" class="form-control" name="text" style="border-radius: 0px; " placeholder="Please Add Details To Generate Security QR In Next Page (Stores/Non-Authorized/Itemname)" value="<?php echo $gqr ?>">
+                    <br>
                     <input type="submit" class="btn btn-md btn-danger btn-block" value="Generate">
                 </form>
             </div>

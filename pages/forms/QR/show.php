@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+
+if (isset($_GET['text'])) {
+    $cnt=$_GET['text'];
+}
+
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,7 +35,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3" style="background-color: white; padding: 20px; box-shadow: 10px 10px 5px #888;">
                 <div class="panel-heading">
-                    <h1>Generate QR-code in PHP</h1>
+                    <h6>Generated QR : <?php echo $cnt; ?></h6>
                 </div>
                 <hr>
                 <div id="qrbox" style="text-align: center;">

@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+?> 
+
 <!DOCTYPE html>
 
 <?php
@@ -134,6 +139,7 @@ include 'connection.php';
 </html>
 
 <?php
+
 if (isset($_POST['logg'])) {
     global $con;
 
@@ -146,10 +152,23 @@ if (isset($_POST['logg'])) {
 
     $smt_query = mysqli_query($con, $query);
     $get_data = mysqli_num_rows($smt_query);
+    $rowg = mysqli_fetch_array($smt_query);
+    $gdp=$rowg['dept_code'];
 
     if ($get_data > 0) {
+        if ($gdp=="1") {
+            $_SESSION['wlogin'] = $rowg['emp_code'];
         echo "<script>swal('Login Message', 'Login Successfully ... !', 'success');</script>";
         echo "<script>document.location='dashboard.php'</script>";
+        }else if ($gdp=="19") {
+            $_SESSION['wlogin'] = $rowg['emp_code'];
+        echo "<script>swal('Login Message', 'Login Successfully ... !', 'success');</script>";
+        echo "<script>document.location='sdashboard.php'</script>";
+        }else{
+            $_SESSION['wlogin'] = $rowg['emp_code'];
+        echo "<script>swal('Login Message', 'Login Successfully ... !', 'success');</script>";
+        echo "<script>document.location='odashboard.php'</script>";
+        }
     } else {
         echo"<script>swal('Login Message', 'Login Failed ... !', 'error');</script>";
     }

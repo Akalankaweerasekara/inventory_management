@@ -331,16 +331,13 @@ $dcode = "";
                                     </div>
                                     <!-- /.card-header -->
                                     <!-- form start -->
-                                    <form action="create_department.php" method="POST">
+                                    <form action="" method="POST">
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Department Name</label>
                                                 <input type="text" name="dname" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" required>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Department Code</label>
-                                                <input type="number" name="dcode" class="form-control" id="exampleInputPassword1" placeholder="Enter Department Code" required>
-                                            </div>
+                                            
 
                                         </div>
                                         <!-- /.card-body -->
@@ -354,7 +351,7 @@ $dcode = "";
 
                                             <div class="col-md-2">
                                                 <div class="card-footer">
-                                                    <a href="create_department.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
+                                                    <a href="view_equipment_department_requests.php.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -410,15 +407,15 @@ $dcode = "";
 <?php
 if (isset($_POST['smit'])) {
     $dname = $_POST['dname'];
-    $dcode = $_POST['dcode'];
+    
     global $con;
-    $query = "insert into department(dname,dcode)values('$dname','$dcode')";
+    $query = "insert into kode(stlogic)values('$dname')";
     $submit_query = mysqli_query($con, $query);
 
     if ($submit_query) {
-        echo "<script>alert('Department Submitted ... !')</script>";
+        echo "<script>alert('Store Serialization Submitted ... !')</script>";
     } else {
-        echo "<script>alert('Department not Submitted ... !')</script>";
+        echo "<script>alert('Store Serialization not Submitted ... !')</script>";
     }
 }
 ?>
