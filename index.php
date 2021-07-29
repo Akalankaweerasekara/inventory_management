@@ -157,15 +157,15 @@ if (isset($_POST['logg'])) {
 
     if ($get_data > 0) {
         if ($gdp=="1") {
-            $_SESSION['wlogin'] = $rowg['emp_code'];
+            $_SESSION['alogin'] = $rowg['emp_code'];
         echo "<script>swal('Login Message', 'Login Successfully ... !', 'success');</script>";
         echo "<script>document.location='dashboard.php'</script>";
         }else if ($gdp=="19") {
-            $_SESSION['wlogin'] = $rowg['emp_code'];
+            $_SESSION['slogin'] = $rowg['emp_code'];
         echo "<script>swal('Login Message', 'Login Successfully ... !', 'success');</script>";
         echo "<script>document.location='sdashboard.php'</script>";
         }else{
-            $_SESSION['wlogin'] = $rowg['emp_code'];
+            $_SESSION['ologin'] = $rowg['emp_code'];
         echo "<script>swal('Login Message', 'Login Successfully ... !', 'success');</script>";
         echo "<script>document.location='odashboard.php'</script>";
         }

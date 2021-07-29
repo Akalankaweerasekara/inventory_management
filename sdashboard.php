@@ -2,9 +2,9 @@
 session_start();
 error_reporting(0);
 
-if(strlen($_SESSION['wlogin'])==0)
+if(strlen($_SESSION['slogin'])==0)
 	{	
- $SS=$_SESSION['wlogin'];
+ $SS=$_SESSION['slogin'];
  
 header('location:index.php');
 }
@@ -62,7 +62,7 @@ $uscat= mysqli_num_rows($squery4);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>UNIVERSITY OF INDEIGENOUS MEDICINE - INVENTORY MANAGEMENT SYSTEM  | Dashboard</title>
+  <title>UNIVERSITY OF INDEIGENOUS MEDICINE - INVENTORY MANAGEMENT SYSTEM  |Stores Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -129,7 +129,7 @@ $uscat= mysqli_num_rows($squery4);
             <img src="dist/img/r.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Super Admin</a>
+          <a href="#" class="d-block">Stores Department</a>
         </div>
       </div>
 
@@ -158,30 +158,7 @@ $uscat= mysqli_num_rows($squery4);
                </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Departments
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                  <a href="pages/forms/create_department.php" class="nav-link">
-                  <i class="far fa-circle text-warning nav-icon"></i>
-                  <p>Create Department</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="pages/forms/view_departments.php" class="nav-link">
-                  <i class="far fa-circle text-info nav-icon"></i>
-                  <p>View Departments</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
+          
           
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -233,36 +210,7 @@ $uscat= mysqli_num_rows($squery4);
             </ul>
           </li>
           
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
-              <p>
-                Users
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                  <a href="pages/forms/create_users.php" class="nav-link">
-                  <i class="far fa-circle text-warning nav-icon"></i>
-                  <p> Create User</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="pages/forms/view_users.php" class="nav-link">
-                  <i class="far fa-circle text-info nav-icon"></i>
-                  <p>View All Users</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="pages/forms/myaccount.php" class="nav-link">
-                  <i class="far fa-circle text-danger nav-icon"></i>
-                  <p>My Account</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
+          
           
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -298,12 +246,7 @@ $uscat= mysqli_num_rows($squery4);
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                  <a href="pages/forms/view_equipment_department_requests.php" class="nav-link">
-                  <i class="far fa-circle text-warning nav-icon"></i>
-                  <p> View Equipment Requests</p>
-                </a>
-              </li>
+              
               <li class="nav-item">
                   <a href="pages/forms/issue_equipment_orders.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>

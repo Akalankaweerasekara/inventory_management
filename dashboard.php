@@ -2,9 +2,9 @@
 session_start();
 error_reporting(0);
 
-if(strlen($_SESSION['wlogin'])==0)
+if(strlen($_SESSION['alogin'])==0)
 	{	
- $SS=$_SESSION['wlogin'];
+ $SS=$_SESSION['alogin'];
  echo $SS;
 header('location:index.php');
 }
