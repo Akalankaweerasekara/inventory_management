@@ -7,7 +7,7 @@ include '../../connection.php';
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>INVENTORY MANAGEMENT SYSTEM | View Equipment Department Requests</title>
+        <title>INVENTORY MANAGEMENT SYSTEM | Issue Confirmations</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -311,7 +311,7 @@ include '../../connection.php';
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
                                     <li class="breadcrumb-item"><a href="../../dashboard.php">Equipment</a></li>
-                                    <li class="breadcrumb-item active">View Equipment Department Requests</li>
+                                    <li class="breadcrumb-item active">Issue Confirmations</li>
                                 </ol>
                             </div>
                         </div>
@@ -324,7 +324,7 @@ include '../../connection.php';
                     <div class="container-fluid">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">View Equipment Department Requests</h3>
+                                <h3 class="card-title">View Issue Confirmations</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -333,60 +333,75 @@ include '../../connection.php';
                                         <tr>
                                             <th>ID</th>
                                             <th>Itemname</th>
-                                            <th>Category</th>
                                             <th>Available Quantity</th>
+
                                             <th>Requested Quantity</th>
-                                            <th>PO NO:</th>
-                                          
+
+
                                             <th>Requested Department</th>
-                                            
-                                            
-                                            <th></th>
-                                            <th></th>
-                                            
-                                            
+
+
+                                            <th>Message</th>
+
+
                                         </tr>
                                     </thead>
                                     <tbody>
 
                                         <?Php
                                         global $con;
-                                        $query = "select * from rfequipment";
+                                        $query = "select * from issueconfirms";
                                         $gtdata = mysqli_query($con, $query);
 
                                         while ($gdd = mysqli_fetch_array($gtdata)) {
                                             $rid = $gdd['id'];
+                                            $rmsg = $gdd['message'];
                                             $rname = $gdd['iname'];
-                                            $rcat = $gdd['icat'];
                                             $rqty = $gdd['iqty'];
                                             $rrqty = $gdd['irqty'];
-                                            
-                                            $rpono = $gdd['ipono'];
-                                            
                                             $rdep = $gdd['rdep'];
+
+                                            $rmsg1 = "Request Cancelled";
+                                            $rmsg2 = "Request Processing";
                                             
                                             $queryd="select * from department where dcode='$rdep'";
                                             $getdata= mysqli_query($con, $queryd);
                                             $g= mysqli_fetch_array($getdata);
                                             $drdep=$g['dname'];
-                                            
 
-                                            echo "<tr>
+                                            if ($rmsg == 1) {
+
+                                                echo "<tr>
                     <td>$rid</td>
                     <td>$rname</td>
-                    <td>$rcat</td>
+                    
                     <td>$rqty</td>
                     <td>$rrqty</td>
-                    <td>$rpono</td>
+                    
                     <td>$drdep</td>
                     
                     
                     
-                    <td><a href='rforequipmentconfirm.php?rqtid=$rid'><span class='btn btn-block btn-success'>Confirm</span></a></td>
-                    <td><a href='rforequipmentcancel.php?rqtid=$rid'><span class='btn btn-block btn-danger'>Cancel</span></a></td>
-                    
-                    
+                    <td><a href='#'><span class='btn btn-block btn-danger'>$rmsg1</span></a></td>
+                   
                   </tr>";
+                                            } else if ($rmsg == 2) {
+
+                                                echo "<tr>
+                    <td>$rid</td>
+                    <td>$rname</td>
+                    
+                    <td>$rqty</td>
+                    <td>$rrqty</td>
+                    
+                    <td>$drdep</td>
+                    
+                    
+                    
+                    <td><a href='#'><span class='btn btn-block btn-success'>$rmsg2</span></a></td>
+                   
+                  </tr>";
+                                            }
                                         }
                                         ?>
 
@@ -397,16 +412,17 @@ include '../../connection.php';
                                         <tr>
                                             <th>ID</th>
                                             <th>Itemname</th>
-                                            <th>Category</th>
                                             <th>Available Quantity</th>
+
                                             <th>Requested Quantity</th>
-                                            <th>PO NO:</th>
-                                          
+
+
                                             <th>Requested Department</th>
-                                            
-                                            <th></th>
-                                            <th></th>
-                                            
+
+
+                                            <th>Message</th>
+
+
                                         </tr>
                                     </tfoot>
                                 </table>
