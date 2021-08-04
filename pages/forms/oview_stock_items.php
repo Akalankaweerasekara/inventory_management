@@ -7,7 +7,7 @@ include '../../connection.php';
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>INVENTORY MANAGEMENT SYSTEM | View Equipment Department Requests</title>
+        <title>INVENTORY MANAGEMENT SYSTEM | View All Department</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -306,12 +306,12 @@ include '../../connection.php';
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Equipment</h1>
+                                <h1>Stock</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
-                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Equipment</a></li>
-                                    <li class="breadcrumb-item active">View Equipment Department Requests</li>
+                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Stock</a></li>
+                                    <li class="breadcrumb-item active">View All Stock</li>
                                 </ol>
                             </div>
                         </div>
@@ -324,7 +324,7 @@ include '../../connection.php';
                     <div class="container-fluid">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">View Equipment Department Requests</h3>
+                                <h3 class="card-title">View All Stock</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
