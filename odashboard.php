@@ -4,12 +4,12 @@ error_reporting(0);
 
 if(strlen($_SESSION['ologin'])==0)
 	{	
- $sd=$_SESSION['ologin'];
+ 
  
 header('location:index.php');
 }
 else{
-    
+    $sd=$_SESSION['ologin'];
 	?>
 
 
@@ -170,7 +170,7 @@ $uscat= mysqli_num_rows($squery4);
             <ul class="nav nav-treeview">
              
               <li class="nav-item">
-                  <a href="pages/forms/myaccount.php" class="nav-link">
+                  <a href="pages/forms/omyaccount.php" class="nav-link">
                   <i class="far fa-circle text-danger nav-icon"></i>
                   <p>My Account</p>
                 </a>
@@ -243,7 +243,7 @@ $uscat= mysqli_num_rows($squery4);
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="pages/forms/serialized_equipments.php" class="nav-link">
+                  <a href="pages/forms/oserialized_equipments.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Departmentlized Equipments</p>
                 </a>
@@ -262,7 +262,7 @@ $uscat= mysqli_num_rows($squery4);
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="pages/forms/admin_messages.php" class="nav-link">
+                  <a href="pages/forms/o_messages.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Send & View Messages</p>
                 </a>

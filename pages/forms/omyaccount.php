@@ -2,12 +2,14 @@
 
 <?php
 include '../../connection.php';
+$dname = "";
+$dcode = "";
 ?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>INVENTORY MANAGEMENT SYSTEM | View All Department</title>
+        <title>INVENTORY MANAGEMENT SYSTEM | My Account</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -15,11 +17,6 @@ include '../../connection.php';
         <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-        <!-- DataTables -->
-        <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-        <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-        <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
     </head>
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -55,14 +52,14 @@ include '../../connection.php';
 
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
-                <!-- Brand Logo -->
-                <a href="../../dashboard.php" class="brand-link">
-                    <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light">Inventory control</span>
-                </a>
+    <!-- Brand Logo -->
+    <a href="../../dashboard.php" class="brand-link">
+      <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Inventory control</span>
+    </a>
 
-                <!-- Sidebar -->
-                <div class="sidebar">
+    <!-- Sidebar -->
+    <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
@@ -215,8 +212,8 @@ include '../../connection.php';
       </nav>
       <!-- /.sidebar-menu -->
     </div>
-                <!-- /.sidebar -->
-            </aside>
+    <!-- /.sidebar -->
+  </aside>
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
@@ -225,12 +222,12 @@ include '../../connection.php';
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Stock</h1>
+                                <h1>Users</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
-                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Stock</a></li>
-                                    <li class="breadcrumb-item active">View All Stock</li>
+                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Users</a></li>
+                                    <li class="breadcrumb-item active">My Account</li>
                                 </ol>
                             </div>
                         </div>
@@ -241,87 +238,67 @@ include '../../connection.php';
                 <!-- /.row -->
                 <section class="content">
                     <div class="container-fluid">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">View All Stock</h3>
+                        <div class="row">
+                            <!-- left column -->
+                            <div class="col-md-2"></div>
+
+                            <div class="col-md-8">
+                                <!-- general form elements -->
+                                <div class="card card-primary">
+                                    <div class="card-header">
+                                        <h3 class="card-title">My Account</h3>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <!-- form start -->
+                                    <form action="create_department.php" method="POST">
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Employee Code</label>
+                                                <input type="text" name="ecode" class="form-control" id="exampleInputEmail1" placeholder="Enter Employee Code" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Username</label>
+                                                <input type="text" name="uname" class="form-control" id="exampleInputPassword1" placeholder="Enter Username" required>
+                                            </div>
+                                             <div class="form-group">
+                                                <label for="exampleInputPassword1">Password</label>
+                                                <input type="password" name="pwd" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required>
+                                            </div>
+                                             <div class="form-group">
+                                                <label for="exampleInputPassword1">Name</label>
+                                                <input type="text" name="nme" class="form-control" id="exampleInputPassword1" placeholder="Enter Name" required>
+                                            </div>
+                                             <div class="form-group">
+                                                <label for="exampleInputPassword1">Department</label>
+                                                <input type="text" name="dpt" class="form-control" id="exampleInputPassword1" placeholder="Enter Department" required>
+                                            </div>
+                                             <div class="form-group">
+                                                <label for="exampleInputPassword1">Telephone</label>
+                                                <input type="text" name="tp" class="form-control" id="exampleInputPassword1" placeholder="Enter Telephone" required>
+                                            </div>
+
+                                        </div>
+                                        <!-- /.card-body -->
+
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="card-footer">
+                                                    <button type="submit" name="smit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <div class="card-footer">
+                                                    <a href="create_department.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+
                             </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>ItemName</th>
-                                            <th>Category</th>
-                                            <th>Sub Category</th>
-                                            <th>Description</th>
-                                            
-                                           
-                                           
-                                            <th>Quantity</th>
-                                            
-                                            
-                                            <th></th>
-                                            
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
 
-                                        <?Php
-                                        global $con;
-                                        $query = "select * from stock where qty !=0";
-                                        $gtdata = mysqli_query($con, $query);
-
-                                        while ($gdd = mysqli_fetch_array($gtdata)) {
-                                            $sitnm = $gdd['itemname'];
-                                            $scats = $gdd['category'];
-                                            $sscats = $gdd['subcat'];
-                                            $sdes = $gdd['description'];
-                                            
-                                            $spono = $gdd['pono'];
-                                            
-                                            $sqty = $gdd['qty'];
-                                            
-
-                                            echo "<tr>
-                    <td>$sitnm</td>
-                    <td>$scats</td>
-                    <td>$sscats</td>
-                    <td>$sdes</td>
-                    
-                   
-                    
-                    <td>$sqty</td>
-                    
-                    
-                    <td><a href='rforequipment.php?rqtid=$spono'><span class='btn btn-block btn-success'>Request</span></a></td>
-                    
-                    
-                  </tr>";
-                                        }
-                                        ?>
-
-
-
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ItemName</th>
-                                            <th>Category</th>
-                                            <th>Sub Category</th>
-                                            <th>Description</th>
-                                            
-                                            
-                                            
-                                            <th>Quantity</th>
-                                            
-                                            <th></th>
-                                            
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
                         </div>
                         <!-- /.row -->
                     </div><!-- /.container-fluid -->
@@ -356,44 +333,27 @@ include '../../connection.php';
         <!-- AdminLTE for demo purposes -->
         <script src="../../dist/js/demo.js"></script>
         <!-- Page specific script -->
-        <!-- DataTables  & Plugins -->
-        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-        <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-        <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-        <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-        <script src="../../plugins/jszip/jszip.min.js"></script>
-        <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-        <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-        <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-        <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-        <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="../../dist/js/adminlte.min.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="../../dist/js/demo.js"></script>
         <script>
             $(function () {
                 bsCustomFileInput.init();
             });
         </script>
-        <script>
-            $(function () {
-                $("#example1").DataTable({
-                    "responsive": true, "lengthChange": false, "autoWidth": false,
-                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-                $('#example2').DataTable({
-                    "paging": true,
-                    "lengthChange": false,
-                    "searching": false,
-                    "ordering": true,
-                    "info": true,
-                    "autoWidth": false,
-                    "responsive": true,
-                });
-            });
-        </script>
     </body>
 </html>
+
+
+<?php
+if (isset($_POST['smit'])) {
+    $dname = $_POST['dname'];
+    $dcode = $_POST['dcode'];
+    global $con;
+    $query = "insert into department(dname,dcode)values('$dname','$dcode')";
+    $submit_query = mysqli_query($con, $query);
+
+    if ($submit_query) {
+        echo "<script>alert('Department Submitted ... !')</script>";
+    } else {
+        echo "<script>alert('Department not Submitted ... !')</script>";
+    }
+}
+?>
