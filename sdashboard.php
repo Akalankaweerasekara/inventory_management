@@ -210,7 +210,25 @@ $uscat= mysqli_num_rows($squery4);
             </ul>
           </li>
           
-          
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-user"></i>
+              <p>
+                Users
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+             
+              <li class="nav-item">
+                  <a href="pages/forms/smyaccount.php" class="nav-link">
+                  <i class="far fa-circle text-danger nav-icon"></i>
+                  <p>My Account</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
           
           <li class="nav-item">
             <a href="#" class="nav-link">
