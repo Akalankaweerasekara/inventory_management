@@ -299,7 +299,7 @@ while ($gttd= mysqli_fetch_array($stm_query)){
                                     </div>
                                     <!-- /.card-header -->
                                     <!-- form start -->
-                                    <form action="create_department.php" method="POST">
+                                    <form action="omyaccount.php" method="POST">
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Employee Code</label>
@@ -338,7 +338,7 @@ while ($gttd= mysqli_fetch_array($stm_query)){
 
                                             <div class="col-md-2">
                                                 <div class="card-footer">
-                                                    <a href="create_department.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
+                                                    <a href="omyaccount.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
                                                 </div>
                                             </div>
                                         </div>
