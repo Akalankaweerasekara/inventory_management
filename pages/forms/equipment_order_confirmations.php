@@ -1,3 +1,17 @@
+<?php
+session_start();
+error_reporting(0);
+
+if(strlen($_SESSION['ologin'])==0)
+	{	
+ 
+ 
+header('location:index.php');
+}
+else{
+    $sd=$_SESSION['ologin'];
+	?>
+
 <!DOCTYPE html>
 
 <?php
@@ -28,10 +42,10 @@ $dcode = "";
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
-                        <a href="../../dashboard.php" class="nav-link">Home</a>
+                        <a href="../../odashboard.php" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
-                        <a href="../../index.php" class="nav-link">Log Out</a>
+                        <a href="ologout.php" class="nav-link">Log Out</a>
                     </li>
                 </ul>
 
@@ -53,7 +67,7 @@ $dcode = "";
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../dashboard.php" class="brand-link">
+    <a href="../../odashboard.php" class="brand-link">
       <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Inventory control</span>
     </a>
@@ -421,4 +435,10 @@ if (isset($_POST['smit'])) {
         echo "<script>alert('Department not Submitted ... !')</script>";
     }
 }
+?>
+
+<?php
+
+}
+
 ?>

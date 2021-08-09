@@ -1,3 +1,17 @@
+<?php
+session_start();
+error_reporting(0);
+
+if(strlen($_SESSION['ologin'])==0)
+	{	
+ 
+ 
+header('location:index.php');
+}
+else{
+    $sd=$_SESSION['ologin'];
+	?>
+
 <!DOCTYPE html>
 
 <?php
@@ -339,5 +353,9 @@ if (isset($_POST['smit'])) {
     } else {
         echo "<script>alert('Department not Submitted ... !')</script>";
     }
+}
+?>
+
+<?php
 }
 ?>
