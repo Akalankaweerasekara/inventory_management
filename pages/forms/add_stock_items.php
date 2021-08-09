@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 
-if(strlen($_SESSION['alogin'])==0 || strlen($_SESSION['slogin'])==0)
+if((strlen($_SESSION['alogin'])==0) || (strlen($_SESSION['slogin'])==0))
 	{	
  
 header('location:index.php');
