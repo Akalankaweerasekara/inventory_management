@@ -18,14 +18,14 @@ $dcode = "";
 session_start();
 error_reporting(0);
 
-if(strlen($_SESSION['slogin'])==0)
+if(strlen($_SESSION['alogin'])==0)
 	{	
- $SS=$_SESSION['slogin'];
+ $SS=$_SESSION['alogin'];
  
 header('location:index.php');
 }
 else{
-    $sdp=$_SESSION['slogin'];
+    $sdp=$_SESSION['alogin'];
 	?>
 
 
