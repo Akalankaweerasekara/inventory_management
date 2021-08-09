@@ -1,3 +1,18 @@
+<?php
+session_start();
+error_reporting(0);
+
+if(strlen($_SESSION['alogin'])==0)
+	{	
+ 
+header('location:index.php');
+}else if(strlen($_SESSION['slogin'])==0){
+    header('location:index.php');
+}
+else{
+    
+	?>
+
 <!DOCTYPE html>
 
 <?php
@@ -1003,4 +1018,10 @@ if (isset($_POST['upd'])) {
         echo"<script>swal('Stock Message', 'Item Details Not Updated ... !', 'error');</script>";
     }
 }
+?>
+
+<?php
+
+}
+
 ?>

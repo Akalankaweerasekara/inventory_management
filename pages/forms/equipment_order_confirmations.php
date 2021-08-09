@@ -19,6 +19,19 @@ include '../../connection.php';
 $dname = "";
 $dcode = "";
 ?>
+
+<?php
+global $con;
+$queryu="select * from department where dcode='$sd'";
+$sb_query= mysqli_query($con, $queryu);
+
+while ($gg= mysqli_fetch_array($sb_query)){
+    $oname=$gg['dname'];
+}
+
+
+
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -80,7 +93,7 @@ $dcode = "";
             <img src="../../dist/img/r.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Super Admin</a>
+          <a href="#" class="d-block"><?php echo $oname; ?></a>
         </div>
       </div>
 

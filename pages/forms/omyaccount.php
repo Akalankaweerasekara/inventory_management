@@ -51,6 +51,19 @@ while ($gttd= mysqli_fetch_array($stm_query)){
 
 ?>
 
+
+<?php
+global $con;
+$queryu="select * from department where dcode='$sd'";
+$sb_query= mysqli_query($con, $queryu);
+
+while ($gg= mysqli_fetch_array($sb_query)){
+    $oname=$gg['dname'];
+}
+
+
+
+?>
 <!DOCTYPE html>
 
 
@@ -115,7 +128,7 @@ while ($gttd= mysqli_fetch_array($stm_query)){
             <img src="dist/img/r.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Super Admin</a>
+          <a href="#" class="d-block"><?php echo $oname; ?></a>
         </div>
       </div>
 
