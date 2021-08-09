@@ -34,7 +34,7 @@ else{
 
 global $con;
 
-$query11="select * from user where dept_code='$sdp'";
+$query11="select * from user where emp_code='$sdp'";
 $stm_query= mysqli_query($con, $query11);
 
 while ($gttd= mysqli_fetch_array($stm_query)){
