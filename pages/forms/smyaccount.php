@@ -8,7 +8,11 @@ $dept="";
 $telephone="";
 
 ?>
-
+<?php
+include '../../connection.php';
+$dname = "";
+$dcode = "";
+?>
 
 <?php
 session_start();
@@ -48,11 +52,7 @@ while ($gttd= mysqli_fetch_array($stm_query)){
 
 <!DOCTYPE html>
 
-<?php
-include '../../connection.php';
-$dname = "";
-$dcode = "";
-?>
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
