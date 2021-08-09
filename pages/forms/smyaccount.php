@@ -302,27 +302,27 @@ $dcode = "";
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Employee Code</label>
-                                                <input type="text" name="ecode" value="<?php $ecode; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Employee Code" readonly="">
+                                                <input type="text" name="ecode" value="<?php echo $ecode; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Employee Code" readonly="">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Username</label>
-                                                <input type="text" name="uname" value="<?php $uname; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Username" readonly="">
+                                                <input type="text" name="uname" value="<?php echo $uname; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Username" readonly="">
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" name="pwd" value="<?php $pwd; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+                                                <input type="password" name="pwd" value="<?php echo $pwd; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Name</label>
-                                                <input type="text" name="nme" value="<?php $name; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Name">
+                                                <input type="text" name="nme" value="<?php echo $name; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Name">
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Department</label>
-                                                <input type="text" name="dpt" value="<?php $dept; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Department" readonly="">
+                                                <input type="text" name="dpt" value="<?php echo $dept; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Department" readonly="">
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Telephone</label>
-                                                <input type="text" name="tp" value="<?php $telephone; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Telephone">
+                                                <input type="text" name="tp" value="<?php echo $telephone; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Telephone">
                                             </div>
 
                                         </div>
