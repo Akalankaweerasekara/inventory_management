@@ -65,6 +65,10 @@ while ($gttd= mysqli_fetch_array($stm_query)){
         <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+        
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -298,7 +302,7 @@ while ($gttd= mysqli_fetch_array($stm_query)){
                                     </div>
                                     <!-- /.card-header -->
                                     <!-- form start -->
-                                    <form action="create_department.php" method="POST">
+                                    <form action="smyaccount.php" method="POST">
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Employee Code</label>
@@ -337,7 +341,7 @@ while ($gttd= mysqli_fetch_array($stm_query)){
 
                                             <div class="col-md-2">
                                                 <div class="card-footer">
-                                                    <a href="create_department.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
+                                                    <a href="smyaccount.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -392,16 +396,18 @@ while ($gttd= mysqli_fetch_array($stm_query)){
 
 <?php
 if (isset($_POST['smit'])) {
-    $dname = $_POST['dname'];
-    $dcode = $_POST['dcode'];
+    $ecodes = $_POST['ecode'];
+    $pass = $_POST['pwd'];
+    $nme = $_POST['name'];
+    $tp = $_POST['tp'];
     global $con;
-    $query = "insert into department(dname,dcode)values('$dname','$dcode')";
+    $query = "update user set password='$pass',name='$nme',telephone='$tp' where emp_code='$ecodes'";
     $submit_query = mysqli_query($con, $query);
 
     if ($submit_query) {
-        echo "<script>alert('Department Submitted ... !')</script>";
+        echo "<script>swal('My User Account Message ', 'User Account Updated Successfully ... !', 'success');</script>";
     } else {
-        echo "<script>alert('Department not Submitted ... !')</script>";
+        echo "<script>swal('My User Account Message', 'User Account Not Updated ... !', 'error');</script>";
     }
 }
 ?>

@@ -1,10 +1,59 @@
-<!DOCTYPE html>
 
+<?php
+
+$ecode="";
+$uname="";
+$pwd="";
+$name="";
+$dept="";
+$telephone="";
+
+?>
 <?php
 include '../../connection.php';
 $dname = "";
 $dcode = "";
 ?>
+
+<?php
+session_start();
+error_reporting(0);
+
+if(strlen($_SESSION['ologin'])==0)
+	{	
+ $SS=$_SESSION['ologin'];
+ 
+header('location:index.php');
+}
+else{
+    $sdp=$_SESSION['ologin'];
+	?>
+
+
+
+<?php
+
+global $con;
+
+$query11="select * from user where dept_code='$sdp'";
+$stm_query= mysqli_query($con, $query11);
+
+while ($gttd= mysqli_fetch_array($stm_query)){
+    
+    $ecode=$gttd['emp_code'];
+    $uname=$gttd['username'];
+    $pwd=$gttd['password'];
+    $name=$gttd['name'];
+    $dept=$gttd['dept_code'];
+    $telephone=$gttd['telephone'];
+    
+}
+
+?>
+
+<!DOCTYPE html>
+
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -254,27 +303,27 @@ $dcode = "";
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Employee Code</label>
-                                                <input type="text" name="ecode" class="form-control" id="exampleInputEmail1" placeholder="Enter Employee Code" required>
+                                                <input type="text" name="ecode" value="<?php echo $ecode; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Employee Code" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Username</label>
-                                                <input type="text" name="uname" class="form-control" id="exampleInputPassword1" placeholder="Enter Username" required>
+                                                <input type="text" name="uname" value="<?php echo $uname; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Username" required>
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" name="pwd" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required>
+                                                <input type="password" name="pwd" value="<?php echo $pwd; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required>
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Name</label>
-                                                <input type="text" name="nme" class="form-control" id="exampleInputPassword1" placeholder="Enter Name" required>
+                                                <input type="text" name="nme" value="<?php echo $name; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Name" required>
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Department</label>
-                                                <input type="text" name="dpt" class="form-control" id="exampleInputPassword1" placeholder="Enter Department" required>
+                                                <input type="text" name="dpt" value="<?php echo $dept; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Department" required>
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Telephone</label>
-                                                <input type="text" name="tp" class="form-control" id="exampleInputPassword1" placeholder="Enter Telephone" required>
+                                                <input type="text" name="tp" value="<?php echo $telephone; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Telephone" required>
                                             </div>
 
                                         </div>
@@ -344,16 +393,23 @@ $dcode = "";
 
 <?php
 if (isset($_POST['smit'])) {
-    $dname = $_POST['dname'];
-    $dcode = $_POST['dcode'];
+    $ecodes = $_POST['ecode'];
+    $pass = $_POST['pwd'];
+    $nme = $_POST['name'];
+    $tp = $_POST['tp'];
     global $con;
-    $query = "insert into department(dname,dcode)values('$dname','$dcode')";
+    $query = "update user set password='$pass',name='$nme',telephone='$tp' where emp_code='$ecodes'";
     $submit_query = mysqli_query($con, $query);
 
     if ($submit_query) {
-        echo "<script>alert('Department Submitted ... !')</script>";
+        echo "<script>swal('My User Account Message ', 'User Account Updated Successfully ... !', 'success');</script>";
     } else {
-        echo "<script>alert('Department not Submitted ... !')</script>";
+        echo "<script>swal('My User Account Message', 'User Account Not Updated ... !', 'error');</script>";
     }
+}
+?>
+
+<?php
+
 }
 ?>
