@@ -1,7 +1,7 @@
  <?php
 session_start(); 
 
-unset($_SESSION['alogin']);
+unset($_SESSION['ologin']);
 
 header("location:set.php"); 
 ?>

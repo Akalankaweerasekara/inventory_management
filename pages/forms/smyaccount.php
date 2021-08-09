@@ -23,7 +23,7 @@ $stm_query= mysqli_query($con, $query11);
 
 while ($gttd= mysqli_fetch_array($stm_query)){
     
-    $sss
+    $sss;
     
 }
 

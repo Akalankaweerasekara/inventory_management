@@ -104,7 +104,7 @@ $uscat= mysqli_num_rows($squery4);
           <a href="dashboard.php" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-          <a href="index.php" class="nav-link">Logout</a>
+          <a href="pages/forms/logout.php" class="nav-link">Logout</a>
       </li>
     </ul>
 
