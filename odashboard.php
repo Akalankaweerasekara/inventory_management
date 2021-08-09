@@ -23,7 +23,7 @@ include './connection.php';
 
 <?php
 global $con;
-$queryu="select * from department where dept_code='$sd'";
+$queryu="select * from department where dcode='$sd'";
 $sb_query= mysqli_query($con, $queryu);
 
 while ($gg= mysqli_fetch_array($sb_query)){
