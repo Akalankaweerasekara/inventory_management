@@ -2,7 +2,7 @@
 
 include './connection.php';
 
-if(!isset($_SESSION['alogin']) OR !isset($_SESSION['slogin']))
+if(isset($_SESSION['alogin']) OR isset($_SESSION['slogin']))
 {
 echo "please login";}
 else{
