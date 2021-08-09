@@ -382,11 +382,11 @@ while ($gttd= mysqli_fetch_array($stm_query)){
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Employee Code</label>
-                                                <input type="text" name="ecode" value="<?php echo $ecode; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Employee Code" required>
+                                                <input type="text" name="ecode" value="<?php echo $ecode; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Employee Code" readonly="">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Username</label>
-                                                <input type="text" name="uname" value="<?php echo $uname; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Username" required>
+                                                <input type="text" name="uname" value="<?php echo $uname; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Username" readonly="">
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Password</label>
@@ -398,7 +398,7 @@ while ($gttd= mysqli_fetch_array($stm_query)){
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Department</label>
-                                                <input type="text" name="dpt" value="<?php echo $dept; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Department" required>
+                                                <input type="text" name="dpt" value="<?php echo $dept; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Department" readonly="">
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Telephone</label>
