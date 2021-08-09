@@ -3,5 +3,5 @@ session_start();
 
 unset($_SESSION['ologin']);
 
-header("location:set.php"); 
+header("location:index.php"); 
 ?>

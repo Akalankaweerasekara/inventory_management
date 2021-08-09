@@ -22,6 +22,19 @@ include './connection.php';
 ?>
 
 <?php
+global $con;
+$queryu="select * from department where dept_code='$sd'";
+$sb_query= mysqli_query($con, $queryu);
+
+while ($gg= mysqli_fetch_array($sb_query)){
+    $oname=$gg['dname'];
+}
+
+
+
+?>
+
+<?php
 
 global $con;
 $query="select * from user";
@@ -129,7 +142,7 @@ $uscat= mysqli_num_rows($squery4);
             <img src="dist/img/r.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Super Admin</a>
+          <a href="#" class="d-block"><?php echo $oname; ?></a>
         </div>
       </div>
 
