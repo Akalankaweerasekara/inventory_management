@@ -1,3 +1,16 @@
+<?php
+session_start();
+error_reporting(0);
+
+if(strlen($_SESSION['alogin'])==0)
+	{	
+ 
+header('location:../../index.php');
+}
+else{
+    $sdp=$_SESSION['alogin'];
+	?>
+
 <!DOCTYPE html>
 
 <?php
@@ -487,3 +500,9 @@ include '../../connection.php';
         </script>
     </body>
 </html>
+
+<?php
+
+}
+
+?>

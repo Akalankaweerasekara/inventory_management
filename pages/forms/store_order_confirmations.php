@@ -2,48 +2,25 @@
 session_start();
 error_reporting(0);
 
-if(strlen($_SESSION['alogin'])==0)
+if(strlen($_SESSION['slogin'])==0)
 	{	
+ 
 header('location:../../index.php');
 }
 else{
-    $sdp=$_SESSION['alogin'];
+    $sdp=$_SESSION['slogin'];
 	?>
 
 <!DOCTYPE html>
 
 <?php
 include '../../connection.php';
-$guname = "";
-$gpwd = "";
-$gdepcode = "";
-$gname = "";
-$gecode = "";
-$gtele = "";
-$gecode = "";
-?>
-<?php
-if (isset($_POST['srch'])) {
-    $decode = $_POST['ecode'];
-
-    global $con;
-    $query2 = "select * from user where emp_code='$decode'";
-    $submit_query2 = mysqli_query($con, $query2);
-    while ($gtuser = mysqli_fetch_array($submit_query2)) {
-        $guname = $gtuser['username'];
-        $gpwd = $gtuser['password'];
-        $gdepcode = $gtuser['dept_code'];
-        $gname = $gtuser['name'];
-        $gecode = $gtuser['emp_code'];
-        $gtele = $gtuser['telephone'];
-    }
-}
 ?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>INVENTORY MANAGEMENT SYSTEM | Create User</title>
+        <title>INVENTORY MANAGEMENT SYSTEM | Order Confirmations</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -51,9 +28,11 @@ if (isset($_POST['srch'])) {
         <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+        <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
     </head>
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -340,12 +319,12 @@ if (isset($_POST['srch'])) {
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Users</h1>
+                                <h1>Departments</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
-                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Users</a></li>
-                                    <li class="breadcrumb-item active">Create User</li>
+                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Departments</a></li>
+                                    <li class="breadcrumb-item active">View All Departments</li>
                                 </ol>
                             </div>
                         </div>
@@ -356,92 +335,58 @@ if (isset($_POST['srch'])) {
                 <!-- /.row -->
                 <section class="content">
                     <div class="container-fluid">
-                        <div class="row">
-                            <!-- left column -->
-                            <div class="col-md-2"></div>
-
-                            <div class="col-md-8">
-                                <!-- general form elements -->
-                                <div class="card card-primary">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Create User</h3>
-                                    </div>
-                                    <!-- /.card-header -->
-                                    <!-- form start -->
-                                    <form action="create_users.php" method="POST">
-                                        <div class="card-body">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Employee Code</label>
-                                                <input type="text" name="ecode" value="<?php echo $gecode; ?>"  class="form-control" id="exampleInputEmail1" placeholder="Search by Employee Code" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Username</label>
-                                                <input type="email" name="uname" value="<?php echo $guname; ?>" class="form-control" id="exampleInputPassword1" placeholder="Put Your Email Here">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Password</label>
-                                                <input type="password" name="pwd" value="<?php echo $gpwd; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Password Here">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Name</label>
-                                                <input type="text" name="nme" value="<?php echo $gname; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Name Here">
-                                            </div>
-                                            <div class="form-group">
-                                                <label style="margin-left: 0px;;">Select Your Department</label>
-                                                <select class="form-control select2" name="dept" style="width: 100%;">
-
-                                                    <?php
-                                                    global $con;
-
-                                                    $query = "select * from department";
-
-                                                    $gdata_query = mysqli_query($con, $query);
-                                                    while ($grows = mysqli_fetch_array($gdata_query)) {
-                                                        $gdname = $grows['dname'];
-                                                        $gdcode = $grows['dcode'];
-
-                                                        echo "<option value='$gdcode'>$gdname</option>";
-                                                    }
-                                                    ?>                      
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Telephone</label>
-                                                <input type="tel" name="telephone" value="<?php echo $gtele; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Telephone">
-                                            </div>
-
-                                        </div>
-                                        <!-- /.card-body -->
-
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <div class="card-footer">
-                                                    <button type="submit" name="suv" class="btn btn-primary">Save</button>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="card-footer">
-                                                    <button type="submit" name="upd" class="btn btn-primary">Update</button>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="card-footer">
-                                                    <button type="submit" name="srch" class="btn btn-primary">Search</button>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-2">
-                                                <div class="card-footer">
-                                                    <a href="create_users.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-
-
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">View All Departments</h3>
                             </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Department Code</th>
+                                            <th>Department Name</th>
+                                            <th>Action</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
+                                        <?Php
+                                        global $con;
+                                        $query = "select * from department";
+                                        $gtdata = mysqli_query($con, $query);
+
+                                        while ($gdd = mysqli_fetch_array($gtdata)) {
+                                            $tdname = $gdd['dname'];
+                                            $tdcode = $gdd['dcode'];
+
+                                            echo "<tr>
+                    <td>$tdcode</td>
+                    <td>$tdname</td>
+                    <td><a href='depdelete.php?depid=$tdcode'><span class='btn btn-block btn-danger'>Delete</span></a></td>
+                    <td></td>
+                    <td></td>
+                  </tr>";
+                                        }
+                                        ?>
+
+
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Department Code</th>
+                                            <th>Department Name</th>
+                                            <th>Action</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
                         </div>
                         <!-- /.row -->
                     </div><!-- /.container-fluid -->
@@ -476,9 +421,43 @@ if (isset($_POST['srch'])) {
         <!-- AdminLTE for demo purposes -->
         <script src="../../dist/js/demo.js"></script>
         <!-- Page specific script -->
+        <!-- DataTables  & Plugins -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+        <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+        <script src="../../plugins/jszip/jszip.min.js"></script>
+        <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+        <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+        <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+        <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+        <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
         <script>
             $(function () {
                 bsCustomFileInput.init();
+            });
+        </script>
+        <script>
+            $(function () {
+                $("#example1").DataTable({
+                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                    "responsive": true,
+                });
             });
         </script>
     </body>
@@ -486,45 +465,19 @@ if (isset($_POST['srch'])) {
 
 
 <?php
-if (isset($_POST['suv'])) {
-    $decode = $_POST['ecode'];
-    $duname = $_POST['uname'];
-    $dpwd = $_POST['pwd'];
-    $dnme = $_POST['nme'];
-    $ddept = $_POST['dept'];
-    $dtelephone = $_POST['telephone'];
+if (isset($_POST['smit'])) {
+    $dname = $_POST['dname'];
+    $dcode = $_POST['dcode'];
     global $con;
-    $query1 = "insert into user(emp_code,username,password,dept_code,name,telephone)values('$decode','$duname','$dpwd','$ddept','$dnme','$dtelephone')";
-    $submit_query1 = mysqli_query($con, $query1);
+    $query = "insert into department(dname,dcode)values('$dname','$dcode')";
+    $submit_query = mysqli_query($con, $query);
 
-    if ($submit_query1) {
-        echo"<script>swal('User Message ', 'User Details Saved ... !', 'success');</script>";
+    if ($submit_query) {
+        echo "<script>alert('Department Submitted ... !')</script>";
     } else {
-        echo"<script>swal('User Message ', 'User Details Not Saved ... !', 'success');</script>";
+        echo "<script>alert('Department not Submitted ... !')</script>";
     }
 }
-?>
-
-<?php
-
-if (isset($_POST['upd'])) {
-    $decode = $_POST['ecode'];
-    $duname = $_POST['uname'];
-    $dpwd = $_POST['pwd'];
-    $dnme = $_POST['nme'];
-    $ddept = $_POST['dept'];
-    $dtelephone = $_POST['telephone'];
-    
-    global $con;
-    $query5="update user set username='$duname',password='$dpwd',name='$dnme',telephone='$dtelephone' where emp_code='$decode'";
-    $squery= mysqli_query($con, $query5);
-    if ($squery) {
-        echo"<script>swal('User Message ', 'User Details Updated ... !', 'success');</script>";
-    }else{
-        echo"<script>swal('User Message', 'User Details Not Updated ... !', 'error');</script>";
-    }
-}
-
 ?>
 
 <?php
