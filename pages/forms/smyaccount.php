@@ -22,7 +22,7 @@ if(strlen($_SESSION['slogin'])==0)
 	{	
  $SS=$_SESSION['slogin'];
  
-header('location:index.php');
+header('location:../../index.php');
 }
 else{
     $sdp=$_SESSION['slogin'];

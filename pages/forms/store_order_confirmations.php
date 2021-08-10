@@ -1,16 +1,17 @@
+
 <?php
 session_start();
 error_reporting(0);
 
 if(strlen($_SESSION['slogin'])==0)
 	{	
+ $SS=$_SESSION['slogin'];
  
 header('location:../../index.php');
 }
 else{
     $sdp=$_SESSION['slogin'];
 	?>
-
 <!DOCTYPE html>
 
 <?php
