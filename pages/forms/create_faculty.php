@@ -22,7 +22,7 @@ $dcode = "";
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>INVENTORY MANAGEMENT SYSTEM | Create Department</title>
+        <title>INVENTORY MANAGEMENT SYSTEM | Create Faculty</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -110,6 +110,30 @@ $dcode = "";
                 Dashboard
                </p>
             </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-thermometer"></i>
+              <p>
+                Faculties
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                  <a href="create_faculty.php" class="nav-link">
+                  <i class="far fa-circle text-warning nav-icon"></i>
+                  <p>Create Faculty</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a href="view_faculties.php" class="nav-link">
+                  <i class="far fa-circle text-info nav-icon"></i>
+                  <p>View Faculties</p>
+                </a>
+              </li>
+              
+            </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -319,12 +343,12 @@ $dcode = "";
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Departments</h1>
+                                <h1>Faculties & Divisions</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
-                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Departments</a></li>
-                                    <li class="breadcrumb-item active">Create Department</li>
+                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Faculties & Divisions</a></li>
+                                    <li class="breadcrumb-item active">Create Faculty Or Divisions</li>
                                 </ol>
                             </div>
                         </div>
@@ -343,39 +367,19 @@ $dcode = "";
                                 <!-- general form elements -->
                                 <div class="card card-primary">
                                     <div class="card-header">
-                                        <h3 class="card-title">Create Department</h3>
+                                        <h3 class="card-title">Create Faculty Or Divisions</h3>
                                     </div>
                                     <!-- /.card-header -->
                                     <!-- form start -->
-                                    <form action="create_department.php" method="POST">
-                                        
+                                    <form action="create_faculty.php" method="POST">
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label style="margin-left: 0px;;">Select the Faculty</label>
-                                                <select class="form-control select2" name="categ" style="width: 100%;">
-
-                                                    <?php
-                                                    global $con;
-
-                                                    $query = "select * from category";
-
-                                                    $gdata_query = mysqli_query($con, $query);
-                                                    while ($grows = mysqli_fetch_array($gdata_query)) {
-                                                        $catname = $grows['category_name'];
-                                                        $catcode = $grows['category_code'];
-
-                                                        echo "<option value='$catcode'>$catname</option>";
-                                                    }
-                                                    ?>                      
-                                                </select>
+                                                <label for="exampleInputEmail1">Faculty Name Or Divions Name</label>
+                                                <input type="text" name="fname" class="form-control" id="exampleInputEmail1" placeholder="Enter Faculty Name Or Division Name" required autofocus="on">
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Department Name</label>
-                                                <input type="text" name="dname" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" required autofocus="on">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Department Code</label>
-                                                <input type="number" name="dcode" class="form-control" id="exampleInputPassword1" placeholder="Enter Department Code" required>
+                                                <label for="exampleInputPassword1">Faculty Code Or Division Code</label>
+                                                <input type="number" name="fcode" class="form-control" id="exampleInputPassword1" placeholder="Enter Faculty Code or Division Name" required>
                                             </div>
 
                                         </div>
@@ -390,7 +394,7 @@ $dcode = "";
 
                                             <div class="col-md-2">
                                                 <div class="card-footer">
-                                                    <a href="create_department.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
+                                                    <a href="create_faculty.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -445,16 +449,16 @@ $dcode = "";
 
 <?php
 if (isset($_POST['smit'])) {
-    $dname = $_POST['dname'];
-    $dcode = $_POST['dcode'];
+    $dname = $_POST['fname'];
+    $dcode = $_POST['fcode'];
     global $con;
-    $query = "insert into department(dname,dcode)values('$dname','$dcode')";
+    $query = "insert into faculty(faculty_name,faculty_code)values('$dname','$dcode')";
     $submit_query = mysqli_query($con, $query);
 
     if ($submit_query) {
-        echo "<script>swal('Department Message', 'Department Created Successfully ... !', 'success');</script>";
+        echo "<script>swal('Faculty Message', 'Faculty Created Successfully ... !', 'success');</script>";
     } else {
-        echo "<script>swal('Department Message', 'Department Not Created ... !', 'error');</script>";
+        echo "<script>swal('Faculty Message', 'Faculty Not Created ... !', 'error');</script>";
     }
 }
 ?>
