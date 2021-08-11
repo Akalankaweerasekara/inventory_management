@@ -113,6 +113,30 @@ $dcode = "";
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-thermometer"></i>
+              <p>
+                Faculties & Divisions
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                  <a href="pages/forms/create_faculty.php" class="nav-link">
+                  <i class="far fa-circle text-warning nav-icon"></i>
+                  <p>Create Faculty</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a href="pages/forms/view_faculties.php" class="nav-link">
+                  <i class="far fa-circle text-info nav-icon"></i>
+                  <p>View Faculties</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Departments
@@ -352,17 +376,17 @@ $dcode = "";
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label style="margin-left: 0px;;">Select the Faculty</label>
-                                                <select class="form-control select2" name="categ" style="width: 100%;">
+                                                <select class="form-control select2" name="fact" style="width: 100%;">
 
                                                     <?php
                                                     global $con;
 
-                                                    $query = "select * from category";
+                                                    $query = "select * from faculty";
 
                                                     $gdata_query = mysqli_query($con, $query);
                                                     while ($grows = mysqli_fetch_array($gdata_query)) {
-                                                        $catname = $grows['category_name'];
-                                                        $catcode = $grows['category_code'];
+                                                        $catname = $grows['faculty_name'];
+                                                        $catcode = $grows['faculty_code'];
 
                                                         echo "<option value='$catcode'>$catname</option>";
                                                     }
@@ -447,8 +471,9 @@ $dcode = "";
 if (isset($_POST['smit'])) {
     $dname = $_POST['dname'];
     $dcode = $_POST['dcode'];
+    $fact = $_POST['fact'];
     global $con;
-    $query = "insert into department(dname,dcode)values('$dname','$dcode')";
+    $query = "insert into department(dname,dcode,faculty)values('$dname','$dcode','$fact')";
     $submit_query = mysqli_query($con, $query);
 
     if ($submit_query) {

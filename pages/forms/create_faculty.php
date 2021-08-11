@@ -115,6 +115,30 @@ $dcode = "";
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-thermometer"></i>
               <p>
+                Faculties & Divisions
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                  <a href="pages/forms/create_faculty.php" class="nav-link">
+                  <i class="far fa-circle text-warning nav-icon"></i>
+                  <p>Create Faculty</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a href="pages/forms/view_faculties.php" class="nav-link">
+                  <i class="far fa-circle text-info nav-icon"></i>
+                  <p>View Faculties</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-thermometer"></i>
+              <p>
                 Faculties
                 <i class="fas fa-angle-left right"></i>
               </p>
