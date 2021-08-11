@@ -296,7 +296,7 @@ while ($gg= mysqli_fetch_array($sb_query)){
 
                                         <?Php
                                         global $con;
-                                        $query = "select * from issueconfirms";
+                                        $query = "select * from issueconfirms where rdep='$sd'";
                                         $gtdata = mysqli_query($con, $query);
 
                                         while ($gdd = mysqli_fetch_array($gtdata)) {

@@ -1,3 +1,18 @@
+<?php
+session_start();
+error_reporting(0);
+include './connection.php';
+
+if((strlen($_SESSION['alogin'])==0) and (strlen($_SESSION['slogin'])==0))
+	{	
+  header('location:../../index.php');
+
+        }
+else{
+    
+
+?>
+
 <!DOCTYPE html>
 
 <?php
@@ -447,4 +462,10 @@ if (isset($_POST['scsmit'])) {
           echo"<script>swal('Sub Category Message', 'Sub Category Created Unsuccessfully ... !', 'error');</script>";
     }
 }
+?>
+
+<?php
+
+}
+
 ?>
