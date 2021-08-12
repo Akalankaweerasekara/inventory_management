@@ -49,6 +49,16 @@ while ($gttd= mysqli_fetch_array($stm_query)){
 
 ?>
 
+<?php
+
+$qr="select * from department where dcode='$dept'";
+$sqr= mysqli_query($con, $qr);
+while ($gts= mysqli_fetch_array($sqr)){
+    $dcodes=$gts['dname'];
+}
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -261,6 +271,12 @@ while ($gttd= mysqli_fetch_array($stm_query)){
                   <p>View All Users</p>
                 </a>
               </li>
+              <li class="nav-item">
+                  <a href="myaccount.php" class="nav-link">
+                  <i class="far fa-circle text-danger nav-icon"></i>
+                  <p>My Account</p>
+                </a>
+              </li>
               
             </ul>
           </li>
@@ -421,7 +437,7 @@ while ($gttd= mysqli_fetch_array($stm_query)){
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Department</label>
-                                                <input type="text" name="dpt" value="<?php echo $dept; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Department" readonly="">
+                                                <input type="text" name="dpt" value="<?php echo $dcodes; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Department" readonly="">
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Telephone</label>

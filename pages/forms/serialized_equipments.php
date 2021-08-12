@@ -230,6 +230,12 @@ $dcode = "";
                   <p>View All Users</p>
                 </a>
               </li>
+              <li class="nav-item">
+                  <a href="myaccount.php" class="nav-link">
+                  <i class="far fa-circle text-danger nav-icon"></i>
+                  <p>My Account</p>
+                </a>
+              </li>
               
             </ul>
           </li>

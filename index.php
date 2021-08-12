@@ -161,7 +161,7 @@ if (isset($_POST['logg'])) {
             $_SESSION['alogin'] = $rowg['emp_code'];
         echo "<script>swal('Login Message', 'Login Successfully ... !', 'success');</script>";
         echo "<script>document.location='dashboard.php'</script>";
-        }else if ($gdp=="19") {
+        }else if ($gdp=="30") {
             $_SESSION['slogin'] = $rowg['dept_code'];
         echo "<script>swal('Login Message', 'Login Successfully ... !', 'success');</script>";
         echo "<script>document.location='sdashboard.php'</script>";

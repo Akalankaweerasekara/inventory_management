@@ -135,30 +135,7 @@ $dcode = "";
               
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-thermometer"></i>
-              <p>
-                Faculties
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                  <a href="create_faculty.php" class="nav-link">
-                  <i class="far fa-circle text-warning nav-icon"></i>
-                  <p>Create Faculty</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="view_faculties.php" class="nav-link">
-                  <i class="far fa-circle text-info nav-icon"></i>
-                  <p>View Faculties</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
+          
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -253,6 +230,12 @@ $dcode = "";
                   <a href="view_users.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View All Users</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a href="myaccount.php" class="nav-link">
+                  <i class="far fa-circle text-danger nav-icon"></i>
+                  <p>My Account</p>
                 </a>
               </li>
               

@@ -332,7 +332,7 @@ while ($gg= mysqli_fetch_array($sb_query)){
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Department</label>
-                                                <input type="text" name="dpt" value="<?php echo $dept; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Department" required>
+                                                <input type="text" name="dpt" value="<?php echo $oname; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter Department" required>
                                             </div>
                                              <div class="form-group">
                                                 <label for="exampleInputPassword1">Telephone</label>

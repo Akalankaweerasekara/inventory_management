@@ -4,12 +4,12 @@ error_reporting(0);
 
 if(strlen($_SESSION['slogin'])==0)
 	{	
- $SS=$_SESSION['slogin'];
+
  
 header('location:index.php');
 }
 else{
-    
+     $sd=$_SESSION['slogin'];
 	?>
 
 
@@ -18,6 +18,19 @@ else{
 <?php
 
 include './connection.php';
+
+?>
+
+<?php
+global $con;
+$queryu="select * from department where dcode='$sd'";
+$sb_query= mysqli_query($con, $queryu);
+
+while ($gg= mysqli_fetch_array($sb_query)){
+    $oname=$gg['dname'];
+}
+
+
 
 ?>
 
@@ -129,7 +142,7 @@ $uscat= mysqli_num_rows($squery4);
             <img src="dist/img/r.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Stores Department</a>
+          <a href="#" class="d-block"><?php echo $oname; ?></a>
         </div>
       </div>
 

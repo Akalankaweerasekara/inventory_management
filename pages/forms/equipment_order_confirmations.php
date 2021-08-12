@@ -2,14 +2,14 @@
 session_start();
 error_reporting(0);
 
-if(strlen($_SESSION['ologin'])==0)
+if(strlen($_SESSION['alogin'])==0)
 	{	
  
  
 header('location:index.php');
 }
 else{
-    $sd=$_SESSION['ologin'];
+    $sd=$_SESSION['alogin'];
 	?>
 
 <!DOCTYPE html>
@@ -240,6 +240,12 @@ while ($gg= mysqli_fetch_array($sb_query)){
                   <a href="view_users.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View All Users</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a href="myaccount.php" class="nav-link">
+                  <i class="far fa-circle text-danger nav-icon"></i>
+                  <p>My Account</p>
                 </a>
               </li>
               
