@@ -279,7 +279,7 @@ $uscat= mysqli_num_rows($squery4);
             <ul class="nav nav-treeview">
               
               <li class="nav-item">
-                  <a href="pages/forms/issue_equipment_orders.php" class="nav-link">
+                  <a href="pages/forms/sissue_equipment_orders.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>Issue Equipment Orders</p>
                 </a>

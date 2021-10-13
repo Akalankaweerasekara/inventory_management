@@ -25,6 +25,7 @@ if ((strlen($_SESSION['alogin']) == 0) and ( strlen($_SESSION['slogin']) == 0)) 
     $ipsup = "";
     $ippono = "";
     $ipdop = "";
+    $ipgrd = "";
     $ipqty = "";
     $ipwarrenty = "";
     $ipwarrentyc = "";
@@ -463,7 +464,7 @@ if ((strlen($_SESSION['alogin']) == 0) and ( strlen($_SESSION['slogin']) == 0)) 
                                     <!-- general form elements -->
                                     <div class="card card-primary">
                                         <div class="card-header">
-                                            <h3 class="card-title">Add Stock Item</h3>
+                                            <h3 class="card-title">Add Stock / Inventory Item</h3>
                                         </div>
                                         <!-- /.card-header -->
                                         <!-- form start -->
@@ -527,6 +528,10 @@ if ((strlen($_SESSION['alogin']) == 0) and ( strlen($_SESSION['slogin']) == 0)) 
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Date of Purchase</label>
                                                     <input type="datetime-local" name="idop" value="<?php echo $ipdop; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Date of Purchase">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Good Recieved Date</label>
+                                                    <input type="datetime-local" name="igrd" value="<?php echo $ipgrd; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Date of Purchase">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">Quantity</label>
@@ -1004,12 +1009,13 @@ if ((strlen($_SESSION['alogin']) == 0) and ( strlen($_SESSION['slogin']) == 0)) 
         $itsup = $_POST['itsup'];
         $ipono = $_POST['itpono'];
         $idop = $_POST['idop'];
+        $igrd = $_POST['igrd'];
         $iqty = $_POST['iqty'];
         $iwty = $_POST['iwty'];
         $iwtyc = $_POST['iwtyc'];
         $sqert = $_POST['sqr'];
         global $con;
-        $query2 = "insert into stock(itemname,category,subcat,description,supplier,pono,dop,qty,warrenty,warrentyc)values('$itnm','$itcat','$itsubcat','$itdes','$itsup','$ipono','$idop','$iqty','$iwty','$iwtyc')";
+        $query2 = "insert into stock(itemname,category,subcat,description,supplier,pono,dop,igrd,qty,warrenty,warrentyc)values('$itnm','$itcat','$itsubcat','$itdes','$itsup','$ipono','$idop','$igrd','$iqty','$iwty','$iwtyc')";
         $submit_query2 = mysqli_query($con, $query2);
 
         if ($submit_query2) {
@@ -1031,13 +1037,14 @@ if ((strlen($_SESSION['alogin']) == 0) and ( strlen($_SESSION['slogin']) == 0)) 
         $itsupu = $_POST['itsup'];
         $iponou = $_POST['itpono'];
         $idopu = $_POST['idop'];
+        $igrd = $_POST['igrd'];
         $iqtyu = $_POST['iqty'];
         $iwtyu = $_POST['iwty'];
         $iwtycu = $_POST['iwtyc'];
 
 
         global $con;
-        $query5 = "update stock set itemname='$itnmu',category='$itcatu',subcat='$itsubcatu',description='$itdesu',supplier='$itsupu',dop='$idopu',qty='$iqtyu',warrenty='$iwtyu',warrentyc='$iwtycu' where pono='$iponou'";
+        $query5 = "update stock set itemname='$itnmu',category='$itcatu',subcat='$itsubcatu',description='$itdesu',supplier='$itsupu',dop='$idopu',igrd='$igrd',qty='$iqtyu',warrenty='$iwtyu',warrentyc='$iwtycu' where pono='$iponou'";
         $squery = mysqli_query($con, $query5);
         if ($squery) {
             echo"<script>swal('Stock Message ', 'Item Detailes Updated ... !', 'success');</script>";

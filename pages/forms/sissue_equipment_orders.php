@@ -67,8 +67,8 @@ $dcode = "";
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../dashboard.php" class="brand-link">
-      <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <a href="index3.html" class="brand-link">
+        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Inventory control</span>
     </a>
 
@@ -80,7 +80,7 @@ $dcode = "";
             <img src="../../dist/img/r.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Super Admin</a>
+            <a href="#" class="d-block"><h5>Stores</h5></a>
         </div>
       </div>
 
@@ -102,61 +102,14 @@ $dcode = "";
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-              <a href="../../dashboard.php" class="nav-link">
+              <a href="dashboard.php" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
                </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-thermometer"></i>
-              <p>
-                Faculties & Divisions
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                  <a href="pages/forms/create_faculty.php" class="nav-link">
-                  <i class="far fa-circle text-warning nav-icon"></i>
-                  <p>Create Faculty</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="pages/forms/view_faculties.php" class="nav-link">
-                  <i class="far fa-circle text-info nav-icon"></i>
-                  <p>View Faculties</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Departments
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                  <a href="create_department.php" class="nav-link">
-                  <i class="far fa-circle text-warning nav-icon"></i>
-                  <p>Create Department</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="view_departments.php" class="nav-link">
-                  <i class="far fa-circle text-info nav-icon"></i>
-                  <p>View Departments</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
+          
           
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -168,13 +121,13 @@ $dcode = "";
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="create_categories.php" class="nav-link">
+                <a href="pages/forms/create_categories.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p>Create Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view_categories.php" class="nav-link">
+                <a href="pages/forms/view_categories.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View Categories</p>
                 </a>
@@ -193,13 +146,13 @@ $dcode = "";
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="create_subcategories.php" class="nav-link">
+                <a href="pages/forms/create_subcategories.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Create Sub Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="view_subcategories.php" class="nav-link">
+                  <a href="pages/forms/view_subcategories.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View Sub Categories</p>
                 </a>
@@ -217,20 +170,9 @@ $dcode = "";
               </p>
             </a>
             <ul class="nav nav-treeview">
+             
               <li class="nav-item">
-                  <a href="create_users.php" class="nav-link">
-                  <i class="far fa-circle text-warning nav-icon"></i>
-                  <p> Create User</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="view_users.php" class="nav-link">
-                  <i class="far fa-circle text-info nav-icon"></i>
-                  <p>View All Users</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="myaccount.php" class="nav-link">
+                  <a href="pages/forms/smyaccount.php" class="nav-link">
                   <i class="far fa-circle text-danger nav-icon"></i>
                   <p>My Account</p>
                 </a>
@@ -249,13 +191,13 @@ $dcode = "";
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="add_stock_items.php" class="nav-link">
+                  <a href="pages/forms/add_stock_items.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Add Stock Item</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="view_stock_items.php" class="nav-link">
+                  <a href="pages/forms/view_stock_items.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View Stock Items</p>
                 </a>
@@ -273,14 +215,9 @@ $dcode = "";
               </p>
             </a>
             <ul class="nav nav-treeview">
+              
               <li class="nav-item">
-                  <a href="view_equipment_department_requests.php" class="nav-link">
-                  <i class="far fa-circle text-warning nav-icon"></i>
-                  <p> View Equipment Requests</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="issue_equipment_orders.php" class="nav-link">
+                  <a href="sissue_equipment_orders.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>Issue Equipment Orders</p>
                 </a>
@@ -305,7 +242,7 @@ $dcode = "";
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="serialized_equipments.php" class="nav-link">
+                  <a href="pages/forms/serialized_equipments.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Serialized Equipments</p>
                 </a>
@@ -324,7 +261,7 @@ $dcode = "";
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="admin_messages.php" class="nav-link">
+                  <a href="pages/forms/admin_messages.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Send & View Messages</p>
                 </a>

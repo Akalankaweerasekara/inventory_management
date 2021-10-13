@@ -364,7 +364,7 @@ if ((strlen($_SESSION['alogin']) == 0) and ( strlen($_SESSION['slogin']) == 0)) 
                         <div class="container-fluid">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">View All Stock</h3>
+                                    <h3 class="card-title">View All Stock / Inventory</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
