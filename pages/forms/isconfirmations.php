@@ -309,7 +309,9 @@ while ($gg= mysqli_fetch_array($sb_query)){
 
                                             $rmsg1 = "Request Cancelled";
                                             $rmsg2 = "Request Processing";
-                                            $rmsg3 = "Request Cancelled By Stores";
+                                            $rmsg3 = "Request Approved";
+                                            $rmsg4 = "Request Declined";
+                                            $rmsg5 = "Request Completed";
                                             
                                             $queryd="select * from department where dcode='$rdep'";
                                             $getdata= mysqli_query($con, $queryd);
@@ -363,7 +365,41 @@ while ($gg= mysqli_fetch_array($sb_query)){
                     
                     
                     
-                    <td><a href='#'><span class='btn btn-block btn-error'>$rmsg3</span></a></td>
+                    <td><a href='#'><span class='btn btn-block btn-secondary'>$rmsg3</span></a></td>
+                   
+                  </tr>";
+                                            }
+                                            else if ($rmsg == 4) {
+
+                                                echo "<tr>
+                    <td>$rid</td>
+                    <td>$rname</td>
+                    
+                    <td>$rqty</td>
+                    <td>$rrqty</td>
+                    
+                    <td>$drdep</td>
+                    
+                    
+                    
+                    <td><a href='#'><span class='btn btn-block btn-primary'>$rmsg4</span></a></td>
+                   
+                  </tr>";
+                                            }
+                                            else if ($rmsg == 5) {
+
+                                                echo "<tr>
+                    <td>$rid</td>
+                    <td>$rname</td>
+                    
+                    <td>$rqty</td>
+                    <td>$rrqty</td>
+                    
+                    <td>$drdep</td>
+                    
+                    
+                    
+                    <td><a href='#'><span class='btn btn-block btn-error'>$rmsg5</span></a></td>
                    
                   </tr>";
                                             }

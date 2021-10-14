@@ -24,7 +24,20 @@ if (isset($_GET['rqtid'])) {
     $sqty=$gs['iqty'];
     $srqty=$gs['irqty'];
     $sdep=$gs['rdep'];
+    $spp=$gs['rpono'];
     $msg=3;
+    $dqty=$sqty-$srqty;
+    
+    $query44="select * from stock where pono='$spp'";
+    $sbquery33= mysqli_query($con, $query44);
+    $gs3= mysqli_fetch_array($sbquery33);
+    
+    $sdf=$gs3['qty'];
+    $dqty=$sdf-$srqty;
+    
+    $query66="update stock set qty='$dqty' where pono='$spp'";
+    $sbquery66= mysqli_query($con, $query66);
+   
     
     $query12="update issueconfirms set message='$msg' where id='$sid'";
     $sbquery12= mysqli_query($con, $query12);

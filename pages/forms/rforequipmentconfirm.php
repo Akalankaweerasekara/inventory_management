@@ -23,10 +23,11 @@ if (isset($_GET['rqtid'])) {
     $sname=$gs['iname'];
     $sqty=$gs['iqty'];
     $srqty=$gs['irqty'];
+    $spono=$gs['ipono'];
     $sdep=$gs['rdep'];
     $msg=2;
     
-    $queryi="insert into issueconfirms(id,message,iname,iqty,irqty,rdep)values('$sid','$msg','$sname','$sqty','$srqty','$sdep')";
+    $queryi="insert into issueconfirms(id,message,iname,iqty,irqty,rdep,rpono)values('$sid','$msg','$sname','$sqty','$srqty','$sdep','$spono')";
     $sbquery2= mysqli_query($con, $queryi);
     
     $query="delete from rfequipment where id='$rqt'";
