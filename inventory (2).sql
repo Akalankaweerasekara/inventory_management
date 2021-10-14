@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2021 at 06:23 AM
+-- Generation Time: Oct 14, 2021 at 12:49 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -166,26 +166,17 @@ CREATE TABLE `issueconfirms` (
   `iname` varchar(255) NOT NULL,
   `iqty` varchar(255) NOT NULL,
   `irqty` varchar(255) NOT NULL,
-  `rdep` varchar(255) NOT NULL
+  `rdep` varchar(255) NOT NULL,
+  `rpono` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `issueconfirms`
 --
 
-INSERT INTO `issueconfirms` (`id`, `message`, `iname`, `iqty`, `irqty`, `rdep`) VALUES
-(6, '2', 'Damro chair', '20', '3', '4'),
-(8, '2', 'Asus i3', '345', '3', '4'),
-(9, '1', 'bee', '4', '2', '4'),
-(10, '2', 'Epson Barcode Reader', '30', '12', '4'),
-(11, '1', 'Damro chair', '20', '2', '4'),
-(12, '2', 'sample', '12', '3', '4'),
-(13, '1', 'tea table', '1', '1', '4'),
-(14, '2', 'Epson Barcode Reader', '30', '1', '4'),
-(15, '1', 'Asus i3', '345', '1', '4'),
-(16, '2', 'Epson Barcode Reader', '30', '2', '4'),
-(17, '2', 'Damro chair', '2', '1', '4'),
-(18, '2', 'Asus i3', '345', '5', '6');
+INSERT INTO `issueconfirms` (`id`, `message`, `iname`, `iqty`, `irqty`, `rdep`, `rpono`) VALUES
+(1, '3', 'Damro chair', '2', '2', '4', '2686'),
+(2, '3', 'Display', '60', '23', '4', '30256');
 
 -- --------------------------------------------------------
 
@@ -1755,6 +1746,7 @@ CREATE TABLE `stock` (
   `supplier` varchar(255) NOT NULL,
   `pono` varchar(200) NOT NULL,
   `dop` text NOT NULL,
+  `igrd` varchar(255) NOT NULL,
   `qty` varchar(255) NOT NULL,
   `warrenty` varchar(255) NOT NULL,
   `warrentyc` text NOT NULL
@@ -1764,24 +1756,25 @@ CREATE TABLE `stock` (
 -- Dumping data for table `stock`
 --
 
-INSERT INTO `stock` (`id`, `itemname`, `category`, `subcat`, `description`, `supplier`, `pono`, `dop`, `qty`, `warrenty`, `warrentyc`) VALUES
-(2, 'Damro chair', '002', '00010', 'gain from 2nd quarter', 'Damro pvt', '2686', '2021-07-22T10:55', '2', '6months', '07/22/2021 - 01/22/2022'),
-(3, 'bee', '005', '0004', 'gmj', 'hmj', '3456', '2021-07-22T10:57', '4', '3years', '08/13/2021 - 08/17/2021'),
-(4, 'Asus i3', '0012', '00013', 'frth', 'fdh', '465', '2021-07-22T02:01', '345', '5years', '08/08/2021 - 08/10/2021'),
-(5, 'sample', '008', '00014', 'qwxc', 'xqsqwxqwxqwxqsxx', '221', '2021-07-16T11:16', '12', '1year', '08/12/2021 - 01/14/2022'),
-(6, 'Damro chair', '0012', '00015', 'hfrd', 'khjkhjk', '200', '2021-07-26T11:22', '20', '2years', '08/11/2021 - 08/28/2021'),
-(7, 'tea table', '001', '0009', 'this is an imported table for special request in Admin Department', 'Expo industrial pvt limited', '01202123', '2021-07-15T17:16', '1', '1year', '08/04/2021 - 08/06/2021'),
-(8, 'tea table', '001', '0009', 'this is an imported table for special request in Admin Department', 'Expo industrial pvt limited', '01202123', '2021-07-15T17:16', '1', '1year', '08/04/2021 - 08/06/2021'),
-(9, 'tea table', '001', '0009', 'this is an imported table for special request in Admin Department', 'Expo industrial pvt limited', '01202123', '2021-07-15T17:16', '1', '1year', '08/04/2021 - 08/06/2021'),
-(10, 'Asus i3', '0012', '00013', 'frth', 'fdh', '465', '2021-07-22T02:01', '345', '5years', '08/08/2021 - 08/10/2021'),
-(11, 'Asus i3', '0012', '00013', 'frth', 'fdh', '465', '2021-07-22T02:01', '345', '5years', '08/08/2021 - 08/10/2021'),
-(12, 'Asus i3', '0012', '00013', 'frth', 'fdh', '465', '2021-07-22T02:01', '345', '5years', '08/08/2021 - 08/10/2021'),
-(13, 'Asus i3', '0012', '00013', 'frth', 'fdh', '465', '2021-07-22T02:01', '345', '5years', '08/08/2021 - 08/10/2021'),
-(18, 'Epson Barcode Reader', '008', '00011', 'This is a barcode reader for who want to read barcodes within any platform like EN128,EN64', 'Metropolitan Pvt LTD.', '20210808', '2021-07-29T09:31', '30', '1year', '07/29/2021 - 07/27/2022'),
-(19, 'DvD Writer', '008', '0001', 'test', 'metropolitan', '27858', '', '20', '2years', '07/14/2021 - 04/15/2022'),
-(22, 'wxy', '008', '0002', 'sample', 'sample', '2570', '2021-08-15T13:13', '20', '6months', '09/10/2021 - 10/15/2021'),
-(23, 'pixma', '009', '0001', 'special printer', 'Expo industrial pvt limited', '2020399', '2021-08-26T19:58', '56', '2years', '08/02/2021 - 04/08/2022'),
-(24, 'Toshiba Printer', '008', '0003', 'sample', 'sample1', '26867', '2021-08-11T08:00', '5', '6months', '12/16/2021 - 02/03/2022');
+INSERT INTO `stock` (`id`, `itemname`, `category`, `subcat`, `description`, `supplier`, `pono`, `dop`, `igrd`, `qty`, `warrenty`, `warrentyc`) VALUES
+(2, 'Damro chair', '002', '00010', 'gain from 2nd quarter', 'Damro pvt', '2686', '2021-07-22T10:55', '', '0', '6months', '07/22/2021 - 01/22/2022'),
+(3, 'bee', '005', '0004', 'gmj', 'hmj', '3456', '2021-07-22T10:57', '', '4', '3years', '08/13/2021 - 08/17/2021'),
+(4, 'Asus i3', '0012', '00013', 'frth', 'fdh', '465', '2021-07-22T02:01', '', '345', '5years', '08/08/2021 - 08/10/2021'),
+(5, 'sample', '008', '00014', 'qwxc', 'xqsqwxqwxqwxqsxx', '221', '2021-07-16T11:16', '', '12', '1year', '08/12/2021 - 01/14/2022'),
+(6, 'Damro chair', '0012', '00015', 'hfrd', 'khjkhjk', '200', '2021-07-26T11:22', '', '20', '2years', '08/11/2021 - 08/28/2021'),
+(7, 'tea table', '001', '0009', 'this is an imported table for special request in Admin Department', 'Expo industrial pvt limited', '01202123', '2021-07-15T17:16', '', '1', '1year', '08/04/2021 - 08/06/2021'),
+(8, 'tea table', '001', '0009', 'this is an imported table for special request in Admin Department', 'Expo industrial pvt limited', '01202123', '2021-07-15T17:16', '', '1', '1year', '08/04/2021 - 08/06/2021'),
+(9, 'tea table', '001', '0009', 'this is an imported table for special request in Admin Department', 'Expo industrial pvt limited', '01202123', '2021-07-15T17:16', '', '1', '1year', '08/04/2021 - 08/06/2021'),
+(10, 'Asus i3', '0012', '00013', 'frth', 'fdh', '465', '2021-07-22T02:01', '', '345', '5years', '08/08/2021 - 08/10/2021'),
+(11, 'Asus i3', '0012', '00013', 'frth', 'fdh', '465', '2021-07-22T02:01', '', '345', '5years', '08/08/2021 - 08/10/2021'),
+(12, 'Asus i3', '0012', '00013', 'frth', 'fdh', '465', '2021-07-22T02:01', '', '345', '5years', '08/08/2021 - 08/10/2021'),
+(13, 'Asus i3', '0012', '00013', 'frth', 'fdh', '465', '2021-07-22T02:01', '', '345', '5years', '08/08/2021 - 08/10/2021'),
+(18, 'Epson Barcode Reader', '008', '00011', 'This is a barcode reader for who want to read barcodes within any platform like EN128,EN64', 'Metropolitan Pvt LTD.', '20210808', '2021-07-29T09:31', '', '30', '1year', '07/29/2021 - 07/27/2022'),
+(19, 'DvD Writer', '008', '0001', 'test', 'metropolitan', '27858', '', '', '20', '2years', '07/14/2021 - 04/15/2022'),
+(22, 'wxy', '008', '0002', 'sample', 'sample', '2570', '2021-08-15T13:13', '', '20', '6months', '09/10/2021 - 10/15/2021'),
+(23, 'pixma', '009', '0001', 'special printer', 'Expo industrial pvt limited', '2020399', '2021-08-26T19:58', '', '56', '2years', '08/02/2021 - 04/08/2022'),
+(24, 'Toshiba Printer', '008', '0003', 'sample', 'sample1', '26867', '2021-08-11T08:00', '', '5', '6months', '12/16/2021 - 02/03/2022'),
+(25, 'Display', '0010', '00011', 'this is an imported table for special request in Admin Department', 'xyz', '30256', '2021-10-03T14:35', '2021-10-09T14:35', '37', '1year', '10/11/2021 - 10/11/2022');
 
 -- --------------------------------------------------------
 
@@ -2012,38 +2005,38 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `dept_code`, `emp_code`, `name`, `telephone`) VALUES
-(1, 'superadmin@gmail.com', '9562', 1, 'SA2020', 'Super Admin', '0332223785'),
+(1, 'superadmin@gmail.com', '9562', 1, 'SA2020', 'Finance Department', '0332223785'),
 (2, 'Ayu@gmail.com', '5377', 2, 'DABP2020', 'Ayurvedic Basic Principles', '0332224834'),
 (3, 'dravyagunavijnana@gmail.com', '5057', 3, 'DOD2020', 'Dravyagunavijnana ', '0332232825'),
 (4, 'cikitsa@gmail.com', '5077', 4, 'DOC2020', 'Cikitsa', '033224913'),
 (5, 'dcikitsa@gmail.com', '2380', 5, 'DDC2020', 'Desiya Cikitsa', '0111222333'),
 (6, 'rogavijnana@gmail.com', '9709', 6, 'DOR2020', 'Rogavijnana', '0111222333'),
-(7, 'salyasalakya@gmail.com', '8832', 7, 'DOSS2020', '8832', '0332231627'),
+(7, 'salyasalakya@gmail.com', '8832', 7, 'DOSS2020', 'Salya - Salakya', '0332231627'),
 (8, 'knstri@gmail.com', '5629', 8, 'DKS2020', 'Kaumarabhritya & Striroga', '0332225648'),
 (9, 'languages@gmail.com', '6652', 9, 'DOL2020', 'Languages', '0111222333'),
 (10, 'inscience@gmail.com', '4786', 10, 'DIHS2020', 'Indigenous Health Science', '0111222333'),
 (11, 'dot@gmail.com', '6178', 11, 'DOT2020', 'Technology', '0111222333'),
 (12, 'dimr@gmail.com', '9001', 12, 'DIMR2020', 'Indigenous Medical Resources', '0111222333'),
-(13, 'gstudies@gmail.com', '3081', 13, 'DGS2020', 'Graduate Studies', '0332238206'),
+(13, 'dss@gmail.com', '3081', 13, 'DSS2020', 'Social Science', '0332238206'),
 (14, 'dfl@gmail.com', '9291', 14, 'DFL2020', 'Library Facility', '0332239010'),
 (15, 'icf@gmail.com', '9689', 15, 'ICF2020', 'Information & Communication Facility', '0332230719'),
-(16, 'sne@gmail.com', '4102', 16, 'SNE2020', 'Sports & Entertainments', '0111222333'),
-(17, 'dms@gmail.com', '8565', 17, 'DMS2020', 'Medical Services', '0111222333'),
-(18, 'cguidance@gmail.com', '3175', 18, 'DCG2020', 'Career Guidance', '0111222333'),
-(19, 'stores@gmail.com', '8250', 19, 'DOS2020', 'Stores', '0111222333'),
-(20, 'swbranch@gmail.com', '9564', 20, 'SWF2020', 'Student Welfare Branch', '0111222333'),
-(21, 'maintenance@gmail.com', '6559', 21, 'DMD2020', 'Maintenance Division', '0111222333'),
-(22, 'clb@gmail.com', '3687', 22, 'CLB2020', 'Central Lab', '0111222333'),
-(23, 'rpu@gmail.com', '7021', 23, 'RPU2020', 'Research & Publication Unit', '0111222333'),
-(24, 'accountbgf@gmail.com', '7610', 24, 'ABGF2020', 'Account Branch - Ground Floor', '0111222333'),
-(25, 'registeroffice@gmail.com', '9118', 25, 'DRO2020', 'Register Office', '0111222333'),
-(26, 'academicnon@gmail.com', '5294', 26, 'ANAB2020', 'Academic Non Academic Branch', '0111222333'),
-(27, 'mediaunit@gmail.com', '3896', 27, 'DMU2020', 'Media Unit', '0111222333'),
-(28, 'vcoffice@gmail.com', '2967', 28, 'DVCO2020', 'VC Office', '0111222333'),
-(29, 'legaloffice@gmail.com', '7850', 29, 'DLO2020', 'Legal Office', '0111222333'),
-(30, 'generaladmin@gmail.com', '2199', 30, 'DGA2020', 'General Admin', '0111222333'),
-(31, 'exambranch@gmail.com', '6890', 31, 'DEB2020', 'Examination Branch', '0111222333'),
-(32, 'disocialscience@gmail.com', '5810', 32, 'DISS2020', 'Department Of Indigenous Social Science', '0111222333');
+(16, 'sne@gmail.com', '4102', 16, 'SNE2020', 'E - Learning Facility', '0111222333'),
+(17, 'dlf@gmail.com', '8565', 17, 'DLF2020', 'Laboratory Facility', '0111222333'),
+(18, 'dse@gmail.com', '3175', 18, ' DSE2020', 'Sports & Entertainment', '0111222333'),
+(19, 'dsc@gmail.com', '8250', 19, 'DSC2020', 'Student Counselling', '0111222333'),
+(20, 'dms@gmail.com', '9564', 20, 'DMS2020', 'Medical Services', '0111222333'),
+(21, 'dcg@gmail.com', '6559', 21, 'DCG2020', 'career Guidance', '0111222333'),
+(22, 'dro@gmail.com', '3687', 22, 'DRO2020', 'Register Office', '0111222333'),
+(23, 'dvc@gmail.com', '7021', 23, 'DVC2020', 'VC Office', '0111222333'),
+(24, 'dae@gmail.com', '7610', 24, 'DAE2020', 'Academic Establishment', '0111222333'),
+(25, 'dnae@gmail.com', '9118', 25, 'DNAE2020', 'Non - Academic Establishment', '0111222333'),
+(26, 'deb@gmail.com', '5294', 26, 'DEB2020', 'Examination Branch', '0111222333'),
+(27, 'dga@gmail.com', '3896', 27, 'DGA2020', 'General Administration', '0111222333'),
+(28, 'dab@gmail.com', '2967', 28, 'DAB2020', 'Account Branch', '0111222333'),
+(29, 'dswb@gmail.com', '7850', 29, 'DSWB2020', 'Student Welfare Branch', '0111222333'),
+(30, 'stores@gmail.com', '2199', 30, 'STORES2020', 'Stores', '0111222333'),
+(31, 'dmd@gmail.com', '6890', 31, 'DMD2020', 'Maintenance Division', '0111222333'),
+(32, 'doiss@gmail.com', '5810', 32, 'DOISS2020', 'Department Of Indigenous Social Science', '0111222333');
 
 --
 -- Indexes for dumped tables
@@ -2129,7 +2122,7 @@ ALTER TABLE `faculty`
 -- AUTO_INCREMENT for table `issueconfirms`
 --
 ALTER TABLE `issueconfirms`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kode`
@@ -2141,13 +2134,13 @@ ALTER TABLE `kode`
 -- AUTO_INCREMENT for table `rfequipment`
 --
 ALTER TABLE `rfequipment`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `sub_category`
