@@ -4,7 +4,6 @@ session_start();
 ?> 
 
 <!DOCTYPE html>
-
 <?php
 include 'connection.php';
 ?>
@@ -44,7 +43,7 @@ include 'connection.php';
             <div class="login-logo" style="font-size: 22px;">
                 <a href="index.php" style="font-weight: 390;"><b style="font-weight: 800;">GAMPAHA WICKRAMARACHCHI</b>&nbsp; UNIVERSITY OF INDEIGENOUS MEDICINE</a>
             </div>
-            <!-- /.login-logo -->
+            <!-- /.login-logo -->  
             <div class="card">
                 <div class="card-body login-card-body" style="  background-color: #800000; color:white; ">
                     <p class="login-box-msg">Inventory Management System</p>

@@ -30,7 +30,6 @@ while ($gg= mysqli_fetch_array($sb_query)){
 }
 
 
-
 ?>
 <html lang="en">
     <head>
