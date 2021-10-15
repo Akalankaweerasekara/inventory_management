@@ -237,7 +237,7 @@ $uscat= mysqli_num_rows($squery4);
               </li>
               
               <li class="nav-item">
-                  <a href="pages/forms/equipment_order_confirmations.php" class="nav-link">
+                  <a href="pages/forms/odconfirmation.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p>Order Confirmations </p>
                 </a>
