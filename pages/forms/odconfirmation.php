@@ -319,7 +319,7 @@ while ($gg= mysqli_fetch_array($sb_query)){
                                             $g= mysqli_fetch_array($getdata);
                                             $drdep=$g['dname'];
 
-                                            if ($rmsg == 1) {
+                                             if ($rmsg == 3) {
 
                                                 echo "<tr>
                     <td>$rid</td>
@@ -332,78 +332,12 @@ while ($gg= mysqli_fetch_array($sb_query)){
                     
                     
                     
-                    <td><a href='#'><span class='btn btn-block btn-danger'>$rmsg1</span></a></td>
-                   
-                  </tr>";
-                                            } else if ($rmsg == 2) {
-
-                                                echo "<tr>
-                    <td>$rid</td>
-                    <td>$rname</td>
-                    
-                    <td>$rqty</td>
-                    <td>$rrqty</td>
-                    
-                    <td>$drdep</td>
-                    
-                    
-                    
-                    <td><a href='#'><span class='btn btn-block btn-success'>$rmsg2</span></a></td>
+                    <td><a href='#'><span class='btn btn-block btn-success'>$rmsg3</span></a></td>
                    
                   </tr>";
                                             }
                                             
-                                            else if ($rmsg == 3) {
-
-                                                echo "<tr>
-                    <td>$rid</td>
-                    <td>$rname</td>
-                    
-                    <td>$rqty</td>
-                    <td>$rrqty</td>
-                    
-                    <td>$drdep</td>
-                    
-                    
-                    
-                    <td><a href='#'><span class='btn btn-block btn-secondary'>$rmsg3</span></a></td>
-                   
-                  </tr>";
-                                            }
-                                            else if ($rmsg == 4) {
-
-                                                echo "<tr>
-                    <td>$rid</td>
-                    <td>$rname</td>
-                    
-                    <td>$rqty</td>
-                    <td>$rrqty</td>
-                    
-                    <td>$drdep</td>
-                    
-                    
-                    
-                    <td><a href='#'><span class='btn btn-block btn-primary'>$rmsg4</span></a></td>
-                   
-                  </tr>";
-                                            }
-                                            else if ($rmsg == 5) {
-
-                                                echo "<tr>
-                    <td>$rid</td>
-                    <td>$rname</td>
-                    
-                    <td>$rqty</td>
-                    <td>$rrqty</td>
-                    
-                    <td>$drdep</td>
-                    
-                    
-                    
-                    <td><a href='#'><span class='btn btn-block btn-error'>$rmsg5</span></a></td>
-                   
-                  </tr>";
-                                            }
+                                            
                                         }
                                         ?>
 
