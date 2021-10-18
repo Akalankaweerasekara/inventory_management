@@ -109,8 +109,8 @@ while ($gts= mysqli_fetch_array($sqr)){
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../dashboard.php" class="brand-link">
-      <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <a href="dashboard.php" class="brand-link">
+        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Inventory control</span>
     </a>
 
@@ -144,7 +144,7 @@ while ($gts= mysqli_fetch_array($sqr)){
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-              <a href="../../dashboard.php" class="nav-link">
+              <a href="dashboard.php" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -161,13 +161,13 @@ while ($gts= mysqli_fetch_array($sqr)){
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="pages/forms/create_faculty.php" class="nav-link">
+                  <a href="create_faculty.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p>Create Faculty</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="pages/forms/view_faculties.php" class="nav-link">
+                  <a href="view_faculties.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View Faculties</p>
                 </a>

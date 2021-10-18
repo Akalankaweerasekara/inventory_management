@@ -12,7 +12,7 @@ header('location:../../index.php');
 else{
     $sdp=$_SESSION['slogin'];
 	?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 
 <?php
 include '../../connection.php';

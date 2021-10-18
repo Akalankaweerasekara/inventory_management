@@ -33,6 +33,42 @@ $unum= mysqli_num_rows($squery);
 <?php
 
 global $con;
+$query01="select * from issueconfirms";
+$squery01= mysqli_query($con, $query01);
+$isreq= mysqli_num_rows($squery01);
+
+?>
+
+<?php
+
+global $con;
+$query02="select * from rfequipment";
+$squery02= mysqli_query($con, $query02);
+$itreq= mysqli_num_rows($squery02);
+
+?>
+
+<?php
+
+global $con;
+$query03="select * from stock";
+$squery03= mysqli_query($con, $query03);
+$equip= mysqli_num_rows($squery03);
+
+?>
+
+<?php
+
+global $con;
+$query04="select * from messages";
+$squery04= mysqli_query($con, $query04);
+$msgm= mysqli_num_rows($squery04);
+
+?>
+
+<?php
+
+global $con;
 $query2="select * from department";
 $squery2= mysqli_query($con, $query2);
 $udep= mysqli_num_rows($squery2);
@@ -418,14 +454,14 @@ $uscat= mysqli_num_rows($squery4);
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>10</h3>
+                <h3><?php echo $itreq; ?></h3>
 
                 <p>Items Requests</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="pages/forms/view_equipment_department_requests.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -433,14 +469,14 @@ $uscat= mysqli_num_rows($squery4);
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>20</h3>
+                <h3><?php echo $isreq; ?></h3>
 
                 <p>Issue Requests</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="pages/forms/issue_equipment_orders.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -455,7 +491,7 @@ $uscat= mysqli_num_rows($squery4);
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="pages/forms/view_users.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -463,14 +499,14 @@ $uscat= mysqli_num_rows($squery4);
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3><?php echo $equip; ?></h3>
 
                 <p>Equipments</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="pages/forms/view_stock_items.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -481,14 +517,14 @@ $uscat= mysqli_num_rows($squery4);
             <!-- small box -->
             <div class="small-box bg-info">
                 <div class="inner" style="background-color: #cc0099;">
-                <h3>35</h3>
+                <h3><?php echo $msgm; ?></h3>
 
                 <p>Messages</p>
               </div>
               <div class="icon">
                 <i class="fa fa-book"></i>
               </div>
-                <a href="#" class="small-box-footer" style="background-color: #990099;">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="pages/forms/admin_messages.php" class="small-box-footer" style="background-color: #990099;">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -503,7 +539,7 @@ $uscat= mysqli_num_rows($squery4);
               <div class="icon">
                 <i class="fa fa-table"></i>
               </div>
-                <a href="#" class="small-box-footer" style="background-color:#009999;">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="pages/forms/view_departments.php" class="small-box-footer" style="background-color:#009999;">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -518,7 +554,7 @@ $uscat= mysqli_num_rows($squery4);
               <div class="icon">
                 <i class="fa fa-th"></i>
               </div>
-                <a href="#" class="small-box-footer" style="background-color:#666600">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="pages/forms/view_categories.php" class="small-box-footer" style="background-color:#666600">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -533,7 +569,7 @@ $uscat= mysqli_num_rows($squery4);
               <div class="icon">
                 <i class="fa fa-bars"></i>
               </div>
-                <a href="#" class="small-box-footer" style="background-color:#00cc33">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="pages/forms/view_subcategories.php" class="small-box-footer" style="background-color:#00cc33">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
             
