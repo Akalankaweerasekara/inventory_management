@@ -5,37 +5,22 @@ error_reporting(0);
 if(strlen($_SESSION['slogin'])==0)
 	{	
  
- 
-header('location:index.php');
+header('location:../../index.php');
 }
 else{
-    $sd=$_SESSION['slogin'];
+    $sdp=$_SESSION['slogin'];
 	?>
 
 <!DOCTYPE html>
 
 <?php
 include '../../connection.php';
-$dname = "";
-$dcode = "";
-?>
-
-<?php
-global $con;
-$queryu="select * from department where dcode='$sd'";
-$sb_query= mysqli_query($con, $queryu);
-
-while ($gg= mysqli_fetch_array($sb_query)){
-    $oname=$gg['dname'];
-}
-
-
 ?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>INVENTORY MANAGEMENT SYSTEM | Create Department</title>
+        <title>INVENTORY MANAGEMENT SYSTEM | View Admin Requests</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -43,6 +28,11 @@ while ($gg= mysqli_fetch_array($sb_query)){
         <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+        <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
     </head>
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -54,10 +44,10 @@ while ($gg= mysqli_fetch_array($sb_query)){
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
-                        <a href="../../odashboard.php" class="nav-link">Home</a>
+                        <a href="../../dashboard.php" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
-                        <a href="ologout.php" class="nav-link">Log Out</a>
+                        <a href="../../index.php" class="nav-link">Log Out</a>
                     </li>
                 </ul>
 
@@ -79,8 +69,8 @@ while ($gg= mysqli_fetch_array($sb_query)){
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../odashboard.php" class="brand-link">
-      <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <a href="index3.html" class="brand-link">
+        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Inventory control</span>
     </a>
 
@@ -92,7 +82,7 @@ while ($gg= mysqli_fetch_array($sb_query)){
             <img src="../../dist/img/r.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $oname; ?></a>
+            <a href="#" class="d-block"><h5>Stores</h5></a>
         </div>
       </div>
 
@@ -114,61 +104,14 @@ while ($gg= mysqli_fetch_array($sb_query)){
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-              <a href="../../dashboard.php" class="nav-link">
+              <a href="dashboard.php" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
                </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-thermometer"></i>
-              <p>
-                Faculties & Divisions
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                  <a href="pages/forms/create_faculty.php" class="nav-link">
-                  <i class="far fa-circle text-warning nav-icon"></i>
-                  <p>Create Faculty</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="pages/forms/view_faculties.php" class="nav-link">
-                  <i class="far fa-circle text-info nav-icon"></i>
-                  <p>View Faculties</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Departments
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                  <a href="create_department.php" class="nav-link">
-                  <i class="far fa-circle text-warning nav-icon"></i>
-                  <p>Create Department</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="view_departments.php" class="nav-link">
-                  <i class="far fa-circle text-info nav-icon"></i>
-                  <p>View Departments</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
+          
           
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -180,13 +123,13 @@ while ($gg= mysqli_fetch_array($sb_query)){
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="create_categories.php" class="nav-link">
+                <a href="pages/forms/create_categories.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p>Create Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view_categories.php" class="nav-link">
+                <a href="pages/forms/view_categories.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View Categories</p>
                 </a>
@@ -205,13 +148,13 @@ while ($gg= mysqli_fetch_array($sb_query)){
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="create_subcategories.php" class="nav-link">
+                <a href="pages/forms/create_subcategories.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Create Sub Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="view_subcategories.php" class="nav-link">
+                  <a href="pages/forms/view_subcategories.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View Sub Categories</p>
                 </a>
@@ -229,20 +172,9 @@ while ($gg= mysqli_fetch_array($sb_query)){
               </p>
             </a>
             <ul class="nav nav-treeview">
+             
               <li class="nav-item">
-                  <a href="create_users.php" class="nav-link">
-                  <i class="far fa-circle text-warning nav-icon"></i>
-                  <p> Create User</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="view_users.php" class="nav-link">
-                  <i class="far fa-circle text-info nav-icon"></i>
-                  <p>View All Users</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="myaccount.php" class="nav-link">
+                  <a href="pages/forms/smyaccount.php" class="nav-link">
                   <i class="far fa-circle text-danger nav-icon"></i>
                   <p>My Account</p>
                 </a>
@@ -261,13 +193,13 @@ while ($gg= mysqli_fetch_array($sb_query)){
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="add_stock_items.php" class="nav-link">
+                  <a href="pages/forms/add_stock_items.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Add Stock Item</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="view_stock_items.php" class="nav-link">
+                  <a href="pages/forms/view_stock_items.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>View Stock Items</p>
                 </a>
@@ -285,14 +217,9 @@ while ($gg= mysqli_fetch_array($sb_query)){
               </p>
             </a>
             <ul class="nav nav-treeview">
+              
               <li class="nav-item">
-                  <a href="view_equipment_department_requests.php" class="nav-link">
-                  <i class="far fa-circle text-warning nav-icon"></i>
-                  <p> View Equipment Requests</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="issue_equipment_orders.php" class="nav-link">
+                  <a href="sissue_equipment_orders.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>Issue Equipment Orders</p>
                 </a>
@@ -317,7 +244,7 @@ while ($gg= mysqli_fetch_array($sb_query)){
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="serialized_equipments.php" class="nav-link">
+                  <a href="pages/forms/serialized_equipments.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Serialized Equipments</p>
                 </a>
@@ -336,7 +263,7 @@ while ($gg= mysqli_fetch_array($sb_query)){
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="admin_messages.php" class="nav-link">
+                  <a href="pages/forms/admin_messages.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>
                   <p> Send & View Messages</p>
                 </a>
@@ -359,12 +286,12 @@ while ($gg= mysqli_fetch_array($sb_query)){
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Departments</h1>
+                                <h1>Equipment</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
-                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Departments</a></li>
-                                    <li class="breadcrumb-item active">Create Department</li>
+                                    <li class="breadcrumb-item"><a href="../../dashboard.php">Equipment</a></li>
+                                    <li class="breadcrumb-item active">View Admin Requests</li>
                                 </ol>
                             </div>
                         </div>
@@ -375,51 +302,104 @@ while ($gg= mysqli_fetch_array($sb_query)){
                 <!-- /.row -->
                 <section class="content">
                     <div class="container-fluid">
-                        <div class="row">
-                            <!-- left column -->
-                            <div class="col-md-2"></div>
-
-                            <div class="col-md-8">
-                                <!-- general form elements -->
-                                <div class="card card-primary">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Create Department</h3>
-                                    </div>
-                                    <!-- /.card-header -->
-                                    <!-- form start -->
-                                    <form action="create_department.php" method="POST">
-                                        <div class="card-body">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Department Name</label>
-                                                <input type="text" name="dname" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Name" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Department Code</label>
-                                                <input type="number" name="dcode" class="form-control" id="exampleInputPassword1" placeholder="Enter Department Code" required>
-                                            </div>
-
-                                        </div>
-                                        <!-- /.card-body -->
-
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <div class="card-footer">
-                                                    <button type="submit" name="smit" class="btn btn-primary">Submit</button>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-2">
-                                                <div class="card-footer">
-                                                    <a href="create_department.php" type="submit" name="clr" class="btn btn-primary">Clear</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-
-
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">View Admin Requests</h3>
                             </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            
+                                            <th>Itemname</th>
+                                            
+                                            <th>Available Quantity</th>
+                                            <th>Requested Quantity</th>
+                                            
+                                            <th>Requested Department</th>
+                                            
+                                            
+                                            <th>Message</th>
+                                            <th>Action</th>
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
+                                        <?Php
+                                        global $con;
+                                        $msgg=3;
+                                        $query = "select * from issueconfirms where message='$msgg'";
+                                        $gtdata = mysqli_query($con, $query);
+
+                                        while ($gdd = mysqli_fetch_array($gtdata)) {
+                                            $rid = $gdd['id'];
+                                            $rmsg = $gdd['message'];
+                                            $rname = $gdd['iname'];
+                                            $rqty = $gdd['iqty'];
+                                            $rrqty = $gdd['irqty'];
+                                            $rdep = $gdd['rdep'];
+
+                                            $rmsg1 = "Request Cancelled";
+                                            $rmsg2 = "Request Processing";
+                                            $rmsg3 = "Approved";
+                                            $rmsg4 = "Request Declined";
+                                            $rmsg5 = "Request Completed";
+                                            
+                                            $queryd="select * from department where dcode='$rdep'";
+                                            $getdata= mysqli_query($con, $queryd);
+                                            $g= mysqli_fetch_array($getdata);
+                                            $drdep=$g['dname'];
+
+                                             if ($rmsg == 3) {
+
+                                                echo "<tr>
+                    <td>$rid</td>
+                    <td>$rname</td>
+                    
+                    <td>$rqty</td>
+                    <td>$rrqty</td>
+                    
+                    <td>$drdep</td>
+                    
+                    
+                    
+                    <td><a href='#'><span class='btn btn-block btn-success'>$rmsg3</span></a></td>
+                    <td><a href='cmorder.php?rqtid=$rid'><span class='btn btn-block btn-danger'>Complete</span></a></td>
+                   
+                  </tr>";
+                                            }
+                                            
+                                            
+                                        }
+                                        ?>
+
+
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            
+                                            <th>Itemname</th>
+                                            <th>Available Quantity</th>
+                                            
+                                            <th>Requested Quantity</th>
+                                            
+                                          
+                                            <th>Requested Department</th>
+                                            
+                                            <th>Message</th>
+                                            <th>Action</th>
+                                            
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
                         </div>
                         <!-- /.row -->
                     </div><!-- /.container-fluid -->
@@ -454,30 +434,47 @@ while ($gg= mysqli_fetch_array($sb_query)){
         <!-- AdminLTE for demo purposes -->
         <script src="../../dist/js/demo.js"></script>
         <!-- Page specific script -->
+        <!-- DataTables  & Plugins -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+        <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+        <script src="../../plugins/jszip/jszip.min.js"></script>
+        <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+        <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+        <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+        <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+        <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
         <script>
             $(function () {
                 bsCustomFileInput.init();
             });
         </script>
+        <script>
+            $(function () {
+                $("#example1").DataTable({
+                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                    "responsive": true,
+                });
+            });
+        </script>
     </body>
 </html>
-
-
-<?php
-if (isset($_POST['smit'])) {
-    $dname = $_POST['dname'];
-    $dcode = $_POST['dcode'];
-    global $con;
-    $query = "insert into department(dname,dcode)values('$dname','$dcode')";
-    $submit_query = mysqli_query($con, $query);
-
-    if ($submit_query) {
-        echo "<script>alert('Department Submitted ... !')</script>";
-    } else {
-        echo "<script>alert('Department not Submitted ... !')</script>";
-    }
-}
-?>
 
 <?php
 

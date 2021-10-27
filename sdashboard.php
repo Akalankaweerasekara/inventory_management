@@ -100,7 +100,7 @@ $uscat= mysqli_num_rows($squery4);
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
+ 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
@@ -119,6 +119,7 @@ $uscat= mysqli_num_rows($squery4);
       <li class="nav-item d-none d-sm-inline-block">
           <a href="pages/forms/slogout.php" class="nav-link">Logout</a>
       </li>
+     
     </ul>
 
     <!-- Right navbar links -->
@@ -171,6 +172,7 @@ $uscat= mysqli_num_rows($squery4);
                </p>
             </a>
           </li>
+     
           
           
           <li class="nav-item">

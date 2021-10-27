@@ -269,8 +269,8 @@ $dcode = "";
                   <a href="issue_equipment_orders.php" class="nav-link">
                   <i class="far fa-circle text-info nav-icon"></i>
                   <p>Issue Equipment Orders</p>
-                </a>
-              </li>
+                  </a>
+              </li> 
               <li class="nav-item">
                   <a href="equipment_order_confirmations.php" class="nav-link">
                   <i class="far fa-circle text-warning nav-icon"></i>

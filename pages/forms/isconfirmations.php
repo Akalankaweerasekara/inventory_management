@@ -386,23 +386,7 @@ while ($gg= mysqli_fetch_array($sb_query)){
                    
                   </tr>";
                                             }
-                                            else if ($rmsg == 5) {
-
-                                                echo "<tr>
-                    <td>$rid</td>
-                    <td>$rname</td>
-                    
-                    <td>$rqty</td>
-                    <td>$rrqty</td>
-                    
-                    <td>$drdep</td>
-                    
-                    
-                    
-                    <td><a href='#'><span class='btn btn-block btn-error'>$rmsg5</span></a></td>
-                   
-                  </tr>";
-                                            }
+                                            
                                         }
                                         ?>
 

@@ -72,8 +72,8 @@ if ((strlen($_SESSION['alogin']) == 0) and ( strlen($_SESSION['slogin']) == 0)) 
     }
     ?>
 
-    <html lang="en">
-        <head>
+    <html lang="en"> 
+        <head> 
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <title>INVENTORY MANAGEMENT SYSTEM | Add Stock Item</title>
