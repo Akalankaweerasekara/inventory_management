@@ -2,20 +2,36 @@
 session_start();
 error_reporting(0);
 
-if(strlen($_SESSION['slogin'])==0)
+if(strlen($_SESSION['ologin'])==0)
 	{	
  
 header('location:../../index.php');
 }
 else{
-    $sdp=$_SESSION['slogin'];
+    $sdp=$_SESSION['ologin'];
 	?>
+
+
 
 <!DOCTYPE html>
 
 <?php
 include '../../connection.php';
 ?>
+
+<?php
+global $con;
+$queryu="select * from department where dcode='$sdp'";
+$sb_query= mysqli_query($con, $queryu);
+
+while ($gg= mysqli_fetch_array($sb_query)){
+    $dpname=$gg['dname'];
+}
+
+
+
+?>
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -82,7 +98,7 @@ include '../../connection.php';
             <img src="../../dist/img/r.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block"><h5>Stores</h5></a>
+            <a href="#" class="d-block"><h6><?php echo $dpname; ?></h6></a>
         </div>
       </div>
 
@@ -253,24 +269,7 @@ include '../../connection.php';
             </ul>
           </li>
           
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-mobile"></i>
-              <p>
-                Messages
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                  <a href="pages/forms/admin_messages.php" class="nav-link">
-                  <i class="far fa-circle text-warning nav-icon"></i>
-                  <p> Send & View Messages</p>
-                </a>
-              </li>
-             
-            </ul>
-          </li>
+          
        
         </ul>
       </nav>
@@ -315,14 +314,14 @@ include '../../connection.php';
                                             
                                             <th>Itemname</th>
                                             
-                                            <th>Available Quantity</th>
-                                            <th>Requested Quantity</th>
                                             
-                                            <th>Requested Department</th>
+                                            <th>Quantity</th>
+                                            
+                                            <th>Serialized Department</th>
                                             
                                             
                                             <th>Message</th>
-                                            <th>Action</th>
+                                            
                                             
                                             
                                         </tr>
@@ -331,8 +330,8 @@ include '../../connection.php';
 
                                         <?Php
                                         global $con;
-                                        $msgg=3;
-                                        $query = "select * from issueconfirms where message='$msgg'";
+                                        $msgg=5;
+                                        $query = "select * from issueconfirms where message='$msgg' and rdep='$sdp'";
                                         $gtdata = mysqli_query($con, $query);
 
                                         while ($gdd = mysqli_fetch_array($gtdata)) {
@@ -343,35 +342,32 @@ include '../../connection.php';
                                             $rrqty = $gdd['irqty'];
                                             $rdep = $gdd['rdep'];
 
-                                            $rmsg1 = "Request Cancelled";
-                                            $rmsg2 = "Request Processing";
-                                            $rmsg3 = "Approved";
-                                            $rmsg4 = "Request Declined";
-                                            $rmsg5 = "Request Completed";
+                                           
+                                            $rmsg5 = "Serialized";
                                             
                                             $queryd="select * from department where dcode='$rdep'";
                                             $getdata= mysqli_query($con, $queryd);
                                             $g= mysqli_fetch_array($getdata);
                                             $drdep=$g['dname'];
 
-                                             if ($rmsg == 3) {
+                                             
 
                                                 echo "<tr>
                     <td>$rid</td>
                     <td>$rname</td>
                     
-                    <td>$rqty</td>
+                   
                     <td>$rrqty</td>
                     
                     <td>$drdep</td>
                     
                     
                     
-                    <td><a href='#'><span class='btn btn-block btn-success'>$rmsg3</span></a></td>
-                    <td><a href='cmorder.php?rqtid=$rid'><span class='btn btn-block btn-danger'>Complete</span></a></td>
+                    <td><a href='#'><span class='btn btn-block btn-success'>$rmsg5</span></a></td>
+                    
                    
                   </tr>";
-                                            }
+                                            
                                             
                                             
                                         }
@@ -385,15 +381,15 @@ include '../../connection.php';
                                             <th>ID</th>
                                             
                                             <th>Itemname</th>
-                                            <th>Available Quantity</th>
                                             
-                                            <th>Requested Quantity</th>
+                                            
+                                            <th>Quantity</th>
                                             
                                           
-                                            <th>Requested Department</th>
+                                            <th>Serialized Department</th>
                                             
                                             <th>Message</th>
-                                            <th>Action</th>
+                                           
                                             
                                         </tr>
                                     </tfoot>
